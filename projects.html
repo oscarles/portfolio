@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projets — Oscar Lescot</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="subpage" data-page="projects">
+
+  <div class="page-overlay" id="page-overlay"></div>
+  <div class="scroll-progress" id="scroll-progress"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-bracket">[</span>OL<span class="logo-bracket">]</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="about.html"    class="nav-link">À propos</a></li>
+      <li><a href="skills.html"   class="nav-link">Compétences</a></li>
+      <li><a href="projects.html" class="nav-link">Projets</a></li>
+      <li><a href="parcours.html" class="nav-link">Parcours</a></li>
+      <li><a href="contact.html"  class="nav-link">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+    <div class="hero-bg-grid"></div>
+
+    <header class="page-intro">
+      <div class="crumb">
+        <a href="index.html">Accueil</a>
+        <span class="crumb-sep">/</span>
+        <span>Projets</span>
+      </div>
+      <h1>Mes <span class="accent">projets</span>.</h1>
+      <p class="lead">
+        Stage, projets académiques et créations personnelles.
+      </p>
+    </header>
+
+    <!-- Stage -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num">01</span>
+          <h2 class="section-title">Stage</h2>
+        </div>
+
+        <a href="project-stage.html" class="project-card featured reveal" style="margin-bottom: 0;">
+          <div class="project-featured-label">⭐ Expérience principale · ISAGRI · Agiris</div>
+          <div class="project-header">
+            <span class="project-icon">🗄️</span>
+            <div class="stage-meta-badges">
+              <span class="tech-badge" style="color: var(--clr-accent); border-color: rgba(0,229,160,0.3);">Janv. → Mars 2026</span>
+            </div>
+          </div>
+          <h3 class="project-title">Pipeline Data + Dashboard + IA conversationnelle</h3>
+          <p class="project-desc">
+            Conception d'un système de données complet pour l'analyse des revenus clients
+            d'experts-comptables. Extraction depuis SQL Server via Python, chargement dans
+            Snowflake en couches RAW → Staging → Analytique, puis dashboard interactif
+            avec Streamlit et IA conversationnelle Cortex AI.
+          </p>
+          <div class="project-techs">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Snowflake</span>
+            <span class="tech-badge">Streamlit</span>
+            <span class="tech-badge">Cortex AI</span>
+            <span class="tech-badge">SQL Server</span>
+            <span class="tech-badge">ETL</span>
+            <span class="tech-badge" style="color:var(--clr-accent); border-color:rgba(0,229,160,0.3);">Voir le détail →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Projets académiques -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num">02</span>
+          <h2 class="section-title">Projets académiques</h2>
+        </div>
+        <div class="projects-grid">
+
+          <a href="project-cookies.html" class="project-card reveal">
+            <div class="project-header">
+              <span class="project-icon">🍪</span>
+            </div>
+            <h3 class="project-title">Boutique de Cookies</h3>
+            <p class="project-desc">
+              E-commerce complet en architecture MVC : catalogue produits, panier persistant,
+              système de paiement en ligne, avis clients et backoffice avec dashboard
+              de statistiques et gestion des commandes.
+            </p>
+            <div class="project-techs">
+              <span class="tech-badge">PHP</span>
+              <span class="tech-badge">MySQL</span>
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">MVC</span>
+              <span class="tech-badge">API REST</span>
+            </div>
+          </a>
+
+          <a href="project-covoit.html" class="project-card reveal">
+            <div class="project-header">
+              <span class="project-icon">🚗</span>
+            </div>
+            <h3 class="project-title">Covo'IUT — Covoiturage</h3>
+            <p class="project-desc">
+              Plateforme de covoiturage pour étudiants de l'IUT : création et réservation
+              de trajets, gestion de profil, système d'avis, recherche avec autocomplétion
+              d'adresse, espace admin complet.
+            </p>
+            <div class="project-techs">
+              <span class="tech-badge">PHP</span>
+              <span class="tech-badge">MySQL</span>
+              <span class="tech-badge">Bootstrap 5</span>
+              <span class="tech-badge">JavaScript</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Projets perso -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num">03</span>
+          <h2 class="section-title">Projets personnels</h2>
+        </div>
+        <div class="projects-grid">
+
+          <a href="project-chess.html" class="project-card reveal">
+            <div class="project-header">
+              <span class="project-icon">♟</span>
+            </div>
+            <h3 class="project-title">Chess Bot — ~2 500 Elo</h3>
+            <p class="project-desc">
+              Moteur d'échecs JavaScript implémentant Negamax avec élagage alpha-bêta,
+              table de transposition (Zobrist hashing), Null Move Pruning, Late Move Reduction
+              et un livre d'ouvertures PGN. Interface jouable dans le navigateur.
+            </p>
+            <div class="project-techs">
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">Minimax / Alpha-Beta</span>
+              <span class="tech-badge">Web Workers</span>
+            </div>
+          </a>
+
+          <a href="project-solana.html" class="project-card reveal">
+            <div class="project-header">
+              <span class="project-icon">🔗</span>
+            </div>
+            <h3 class="project-title">Memecoin Insider Bot</h3>
+            <p class="project-desc">
+              Bot Python déployé sur VPS qui surveille les hot wallets de Binance, Gate.io,
+              KuCoin et BitGet en temps réel. Détecte les retraits vers wallets frais,
+              puis traque leur activité sur pump.fun — alerte Discord dès qu'ils lancent un coin.
+            </p>
+            <div class="project-techs">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">Discord Bot</span>
+              <span class="tech-badge">Solana on-chain</span>
+              <span class="tech-badge">PumpFun</span>
+              <span class="tech-badge">VPS</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Fait avec ☕ par <strong>Oscar Lescot</strong> · 2026</p>
+    <p class="footer-tech">HTML · CSS · JS — From scratch</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

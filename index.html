@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oscar Lescot — Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body data-page="home">
+    <!-- Overlay transition de page -->
+    <div class="page-overlay" id="page-overlay"></div>
+
+    <!-- Barre de progression scroll -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Grain texture -->
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- Curseur -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Nav -->
+    <nav class="navbar" id="navbar">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-bracket">[</span>OL<span class="logo-bracket">]</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="about.html" class="nav-link">À propos</a></li>
+        <li><a href="skills.html" class="nav-link">Compétences</a></li>
+        <li><a href="projects.html" class="nav-link">Projets</a></li>
+        <li><a href="parcours.html" class="nav-link">Parcours</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-blob"></div>
+
+      <div class="hero-content">
+        <p class="hero-tag">// Développeur &amp; Étudiant</p>
+        <h1 class="hero-title">
+          <span class="line" data-index="0">Oscar</span>
+          <span class="line accent glitch" data-index="1" data-text="Lescot."
+            >Lescot.</span
+          >
+        </h1>
+        <p class="hero-subtitle">
+          Étudiant en <em>BUT 2 Informatique</em> · IUT d'Amiens<br />
+          Stage chez <em>ISAGRI</em> — POC DATA &amp; Création IA.
+        </p>
+        <div class="hero-actions">
+          <a href="projects.html" class="btn btn-primary">Voir mes projets</a>
+          <a href="contact.html" class="btn btn-ghost">Me contacter</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-photo-wrap" id="hero-photo">
+          <img src="Image%20CV.jpg" alt="Photo d'Oscar Lescot" />
+          <div class="hero-photo-tag">
+            <span><span class="dot-live"></span>Disponible</span>
+            <span><strong>BUT 2</strong> · Amiens</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <span>Explore</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- Ticker -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span
+          >Python · Snowflake · JavaScript · PHP · Java · SQL · Cortex AI ·
+          Streamlit · C · Rust · Git · MySQL · Bootstrap · MVC · API REST
+          ·&nbsp;</span
+        >
+        <span
+          >Python · Snowflake · JavaScript · PHP · Java · SQL · Cortex AI ·
+          Streamlit · C · Rust · Git · MySQL · Bootstrap · MVC · API REST
+          ·&nbsp;</span
+        >
+      </div>
+    </div>
+
+    <!-- Section Stage -->
+    <section class="section stage-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num">// Stage</span>
+          <h2 class="section-title">Expérience récente</h2>
+        </div>
+
+        <a href="projects.html" class="stage-card reveal">
+          <div class="stage-card-left">
+            <span class="stage-label">Janv. → Mars 2026 · 8 semaines</span>
+            <h3 class="stage-name">ISAGRI · Agiris</h3>
+            <p class="stage-role">
+              Pipeline de données · Dashboard analytique · IA conversationnelle
+            </p>
+            <div class="stage-techs">
+              <span>Snowflake</span>
+              <span>Python</span>
+              <span>Streamlit</span>
+              <span>Cortex AI</span>
+              <span>SQL Server</span>
+            </div>
+          </div>
+          <div class="stage-card-right">
+            <span class="stage-arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Fait avec ☕ par <strong>Oscar Lescot</strong> · 2026</p>
+      <p class="footer-tech">HTML · CSS · JS — From scratch</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

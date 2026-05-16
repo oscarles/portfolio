@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parcours & Expérience — Oscar Lescot</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="subpage" data-page="parcours">
+
+  <div class="page-overlay" id="page-overlay"></div>
+  <div class="scroll-progress" id="scroll-progress"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-bracket">[</span>OL<span class="logo-bracket">]</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="about.html"    class="nav-link">À propos</a></li>
+      <li><a href="skills.html"   class="nav-link">Compétences</a></li>
+      <li><a href="projects.html" class="nav-link">Projets</a></li>
+      <li><a href="parcours.html" class="nav-link active">Parcours</a></li>
+      <li><a href="contact.html"  class="nav-link">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+    <div class="hero-bg-grid"></div>
+
+    <header class="page-intro">
+      <div class="crumb">
+        <a href="index.html">Accueil</a>
+        <span class="crumb-sep">/</span>
+        <span>Parcours</span>
+      </div>
+      <h1>Parcours &amp; <span class="accent">Expérience</span>.</h1>
+      <p class="lead">
+        Mon stage, ma formation, et tout ce qui m'a amené là où j'en suis.
+      </p>
+    </header>
+
+    <!-- Expérience professionnelle -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num">01</span>
+          <h2 class="section-title">Expérience professionnelle</h2>
+        </div>
+
+        <div class="exp-card reveal">
+          <div class="exp-card-header">
+            <img
+              src="assets/logo_isagri.png"
+              alt="Logo ISAGRI"
+              class="exp-logo"
+            />
+            <div class="exp-meta">
+              <span class="exp-date">Janv. → Mars 2026 · 8 semaines · Beauvais, Oise</span>
+              <div class="exp-title">Stage — ISAGRI · <span class="accent">Agiris</span></div>
+              <div class="exp-subtitle">Stagiaire développeur Data & IA · BUT 2e année</div>
+            </div>
+          </div>
+
+          <div class="exp-body">
+            <p>
+              Stage de 8 semaines au sein du pôle <strong>Agiris</strong> d'ISAGRI à Beauvais,
+              éditeur de logiciels comptables pour experts-comptables. Mission : concevoir
+              de zéro un système de données complet — de l'extraction à la visualisation —
+              permettant d'analyser les revenus clients.
+            </p>
+            <ul>
+              <li><strong>Pipeline ETL</strong> — extraction depuis SQL Server on-premise via Python (pyodbc), chargement dans Snowflake selon la medallion architecture (RAW → Staging → BD Analytique)</li>
+              <li><strong>Dashboard analytique</strong> — interface interactive Streamlit connectée à Snowflake, avec filtres dynamiques, graphiques par période et export de données</li>
+              <li><strong>IA conversationnelle</strong> — intégration de Snowflake Cortex AI pour interroger la base en langage naturel, avec génération automatique de requêtes SQL</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="tag tag-hi">Snowflake</span>
+              <span class="tag tag-hi">Streamlit</span>
+              <span class="tag tag-hi">Cortex AI</span>
+              <span class="tag">Python</span>
+              <span class="tag">SQL Server</span>
+              <span class="tag">ETL</span>
+              <span class="tag">pyodbc</span>
+              <span class="tag">Pandas</span>
+            </div>
+            <a href="project-stage.html" class="exp-link">
+              → Voir le projet en détail
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Formation -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num">02</span>
+          <h2 class="section-title">Formation</h2>
+        </div>
+
+        <div class="exp-card reveal">
+          <div class="exp-card-header">
+            <img
+              src="assets/logo_iut.png"
+              alt="Logo IUT d'Amiens"
+              class="exp-logo"
+            />
+            <div class="exp-meta">
+              <span class="exp-date">2023 → 2026 · IUT d'Amiens · Université Picardie Jules Verne</span>
+              <div class="exp-title">BUT <span class="accent">Informatique</span></div>
+              <div class="exp-subtitle">Bachelor Universitaire de Technologie · Informatique</div>
+            </div>
+          </div>
+
+          <div class="exp-body">
+            <p>
+              Formation en 3 ans alliant théorie et projets concrets. Le BUT Informatique couvre
+              l'ensemble du développement logiciel — du bas niveau à l'interface utilisateur —
+              ainsi que la gestion de projet, les bases de données et les réseaux.
+            </p>
+            <ul>
+              <li><strong>Développement</strong> — Python, Java, C, PHP, JavaScript, algorithmique avancée</li>
+              <li><strong>Bases de données</strong> — SQL, modélisation relationnelle, MySQL, PostgreSQL</li>
+              <li><strong>Projets académiques (SAE)</strong> — Covo'IUT (covoiturage PHP/MySQL), Boutique de Cookies (MVC PHP), et plus</li>
+              <li><strong>Réseaux & systèmes</strong> — protocoles, architecture réseau, Linux</li>
+              <li><strong>Gestion de projet</strong> — méthodes agiles, travail en équipe, documentation</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="tag tag-hi">Python</span>
+              <span class="tag tag-hi">Java</span>
+              <span class="tag tag-hi">PHP</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">C</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Réseaux</span>
+              <span class="tag">MVC</span>
+              <span class="tag">Agile</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-card reveal">
+          <div class="exp-card-header">
+            <img
+              src="assets/Logo-Felix-faure.jpg"
+              alt="Logo Lycée Félix Faure Beauvais"
+              class="exp-logo"
+            />
+            <div class="exp-meta">
+              <span class="exp-date">2023 · Lycée Félix Faure — Beauvais</span>
+              <div class="exp-title">Baccalauréat <span class="accent">général</span></div>
+              <div class="exp-subtitle">Spécialités Mathématiques &amp; NSI · Mention Bien</div>
+            </div>
+          </div>
+          <div class="exp-body">
+            <p>
+              Spécialité Numérique et Sciences Informatiques (NSI) associée aux Mathématiques,
+              premier contact structuré avec la programmation, les algorithmes et la logique formelle.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num">03</span>
+          <h2 class="section-title">Curriculum Vitæ</h2>
+        </div>
+
+        <div class="cv-cta reveal">
+          <h3>Mon <span class="accent">CV</span></h3>
+          <p>
+            L'ensemble de mon parcours, mes compétences et mes projets
+            résumés en une page.
+          </p>
+          <a href="assets/CV%20Oscar%20Lescot.pdf" class="btn btn-primary" download="CV Oscar Lescot.pdf">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Télécharger mon CV
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Fait avec ☕ par <strong>Oscar Lescot</strong> · 2026</p>
+    <p class="footer-tech">HTML · CSS · JS — From scratch</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chess Bot — Oscar Lescot</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="subpage" data-page="projects">
+    <div class="page-overlay" id="page-overlay"></div>
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <nav class="navbar" id="navbar">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-bracket">[</span>OL<span class="logo-bracket">]</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="about.html"    class="nav-link">À propos</a></li>
+        <li><a href="skills.html"   class="nav-link">Compétences</a></li>
+        <li><a href="projects.html" class="nav-link">Projets</a></li>
+        <li><a href="parcours.html" class="nav-link">Parcours</a></li>
+        <li><a href="contact.html"  class="nav-link">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <main>
+      <div class="hero-bg-grid"></div>
+
+      <section class="section" style="padding-top: 7rem">
+        <div class="container">
+          <div class="detail-banner reveal">
+            <a href="projects.html" class="detail-back">← Retour aux projets</a>
+            <div class="project-featured-label">
+              ♟ Projet personnel · JavaScript
+            </div>
+            <h1
+              style="
+                font-family: var(--font-display);
+                font-size: clamp(1.8rem, 4vw, 3rem);
+                font-weight: 800;
+                letter-spacing: -0.03em;
+                line-height: 1.1;
+                margin-top: 0.5rem;
+              "
+            >
+              Chess Bot — <span class="accent">~2 500 Elo</span>
+            </h1>
+            <div class="detail-meta-row">
+              <span class="detail-badge">Moteur d'échecs</span>
+              <span class="detail-badge">JavaScript vanilla</span>
+              <span class="detail-badge">IA / Minimax</span>
+            </div>
+          </div>
+
+          <div class="detail-layout">
+            <div class="detail-main">
+              <div class="detail-img-placeholder reveal">
+                <img src="assets/chessBot.png" alt="Chess Bot — interface jouable et plateau d'analyse" loading="lazy" />
+              </div>
+
+              <h3 class="detail-section-title reveal">Présentation</h3>
+              <p class="reveal">
+                Moteur d'échecs développé de zéro en JavaScript vanilla, jouable
+                directement dans le navigateur. Le bot atteint un niveau estimé
+                à <strong>~2 500 Elo</strong>
+                grâce à plusieurs optimisations algorithmiques avancées. Il est
+                entièrement autonome et ne dépend d'aucune bibliothèque externe.
+              </p>
+
+              <h3 class="detail-section-title reveal">
+                Algorithme — Negamax + optimisations
+              </h3>
+              <ul class="feature-list reveal">
+                <li>
+                  <strong>Negamax</strong> — variante symétrique du Minimax,
+                  base de l'arbre de recherche
+                </li>
+                <li>
+                  <strong>Élagage Alpha-Bêta</strong> — élague les branches
+                  impossibles à améliorer, réduit l'espace de recherche de façon
+                  exponentielle
+                </li>
+                <li>
+                  <strong>Table de transposition (Zobrist hashing)</strong> —
+                  mémoïse les positions déjà évaluées pour éviter les recalculs
+                </li>
+                <li>
+                  <strong>Null Move Pruning</strong> — technique avancée qui
+                  suppose un coup "nul" pour couper des branches supplémentaires
+                </li>
+                <li>
+                  <strong>Late Move Reduction (LMR)</strong> — réduit la
+                  profondeur de recherche sur les coups probablement mauvais
+                </li>
+                <li>
+                  <strong>Livre d'ouvertures PGN</strong> — base de données
+                  d'ouvertures éprouvées pour les 10-15 premiers coups
+                </li>
+              </ul>
+
+              <h3 class="detail-section-title reveal">Interface & technique</h3>
+              <p class="reveal">
+                L'interface est entièrement rendue en JavaScript avec un plateau
+                SVG interactif. Le moteur tourne dans un
+                <strong>Web Worker</strong> dédié pour ne pas bloquer le thread
+                principal — le jeu reste fluide même pendant les calculs
+                profonds.
+              </p>
+              <ul class="feature-list reveal">
+                <li>Plateau interactif drag-and-drop pour les pièces</li>
+                <li>Affichage des coups légaux au survol</li>
+                <li>Exportation PGN</li>
+                <li>Web Workers pour le calcul asynchrone</li>
+              </ul>
+            </div>
+
+            <div class="detail-sidebar">
+              <div class="sidebar-card reveal">
+                <h4>Stack technique</h4>
+                <div class="sidebar-tags">
+                  <span class="tag tag-hi">JavaScript</span>
+                  <span class="tag">Minimax / Negamax</span>
+                  <span class="tag">Alpha-Beta</span>
+                  <span class="tag">Zobrist Hashing</span>
+                  <span class="tag">Web Workers</span>
+                  <span class="tag">HTML / CSS</span>
+                </div>
+              </div>
+
+              <div class="sidebar-card reveal">
+                <h4>Infos</h4>
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.7rem;
+                    font-size: 0.82rem;
+                    color: var(--clr-text-muted);
+                  "
+                >
+                  <div>
+                    <span
+                      style="
+                        color: var(--clr-accent);
+                        display: block;
+                        font-size: 0.7rem;
+                        text-transform: uppercase;
+                        letter-spacing: 0.1em;
+                        margin-bottom: 0.2rem;
+                      "
+                      >Niveau estimé</span
+                    >~2 500 Elo
+                  </div>
+                  <div>
+                    <span
+                      style="
+                        color: var(--clr-accent);
+                        display: block;
+                        font-size: 0.7rem;
+                        text-transform: uppercase;
+                        letter-spacing: 0.1em;
+                        margin-bottom: 0.2rem;
+                      "
+                      >Type</span
+                    >Projet personnel
+                  </div>
+                  <div>
+                    <span
+                      style="
+                        color: var(--clr-accent);
+                        display: block;
+                        font-size: 0.7rem;
+                        text-transform: uppercase;
+                        letter-spacing: 0.1em;
+                        margin-bottom: 0.2rem;
+                      "
+                      >Langage</span
+                    >JavaScript vanilla (0 dépendance)
+                  </div>
+                </div>
+              </div>
+
+              <div class="sidebar-card reveal">
+                <h4>Liens</h4>
+                <div class="detail-links">
+                  <a
+                    href="https://github.com/oscarles/Chess_Bot"
+                    target="_blank"
+                    rel="noopener"
+                    class="detail-ext-link"
+                  >
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                      />
+                    </svg>
+                    GitHub — Chess_Bot
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Fait avec ☕ par <strong>Oscar Lescot</strong> · 2026</p>
+      <p class="footer-tech">HTML · CSS · JS — From scratch</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memecoin Insider Bot — Oscar Lescot</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="subpage" data-page="projects">
+
+  <div class="page-overlay" id="page-overlay"></div>
+  <div class="scroll-progress" id="scroll-progress"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-bracket">[</span>OL<span class="logo-bracket">]</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="about.html"    class="nav-link">À propos</a></li>
+      <li><a href="skills.html"   class="nav-link">Compétences</a></li>
+      <li><a href="projects.html" class="nav-link">Projets</a></li>
+      <li><a href="parcours.html" class="nav-link">Parcours</a></li>
+      <li><a href="contact.html"  class="nav-link">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+    <div class="hero-bg-grid"></div>
+
+    <section class="section" style="padding-top: 7rem;">
+      <div class="container">
+
+        <div class="detail-banner reveal">
+          <a href="projects.html" class="detail-back">← Retour aux projets</a>
+          <div class="project-featured-label">🔗 Projet personnel · Python · Blockchain · On-chain</div>
+          <h1 style="font-family:var(--font-display); font-size:clamp(1.8rem,4vw,3rem); font-weight:800; letter-spacing:-0.03em; line-height:1.1; margin-top:0.5rem;">
+            Memecoin <span class="accent">Insider Bot</span>
+          </h1>
+          <div class="detail-meta-row">
+            <span class="detail-badge">Discord Bot</span>
+            <span class="detail-badge">Multi-exchange</span>
+            <span class="detail-badge">PumpFun</span>
+            <span class="detail-badge">VPS 24/7</span>
+          </div>
+        </div>
+
+        <div class="detail-layout">
+
+          <div class="detail-main">
+
+            <div class="detail-img-placeholder reveal">
+              <img src="assets/alterte_discord_memecoins.png" alt="Alerte Discord — Memecoin Insider Bot" loading="lazy" />
+            </div>
+
+            <h3 class="detail-section-title reveal">Concept</h3>
+            <p class="reveal">
+              Les développeurs de memecoins suivent presque toujours le même schéma :
+              ils achètent du SOL sur un exchange centralisé (Binance, Gate.io…),
+              le retirent vers un <strong>wallet frais</strong>, puis lancent leur coin
+              sur <strong>pump.fun</strong> quelques minutes plus tard.
+              Ce bot intercepte cette séquence on-chain pour détecter les futurs devs
+              <em>avant</em> que leur coin soit annoncé — et envoie une alerte Discord
+              avec le lien direct pump.fun dès le lancement.
+            </p>
+
+            <!-- Flow -->
+            <h3 class="detail-section-title reveal">Flux de détection</h3>
+            <div class="detail-pipeline reveal">
+              <div class="dp-step">
+                <div class="dp-icon">🏦</div>
+                <span>CEX<br/>(Binance…)</span>
+              </div>
+              <div class="dp-arr">→</div>
+              <div class="dp-step">
+                <div class="dp-icon">🔎</div>
+                <span>Retrait<br/>SOL détecté</span>
+              </div>
+              <div class="dp-arr">→</div>
+              <div class="dp-step">
+                <div class="dp-icon">🆕</div>
+                <span>Wallet<br/>frais ?</span>
+              </div>
+              <div class="dp-arr">→</div>
+              <div class="dp-step">
+                <div class="dp-icon">👁️</div>
+                <span>Ajout<br/>watchlist</span>
+              </div>
+              <div class="dp-arr">→</div>
+              <div class="dp-step">
+                <div class="dp-icon">🚀</div>
+                <span>Création<br/>PumpFun</span>
+              </div>
+              <div class="dp-arr">→</div>
+              <div class="dp-step">
+                <div class="dp-icon">💬</div>
+                <span>@everyone<br/>Discord</span>
+              </div>
+            </div>
+
+            <!-- Module 1 -->
+            <h3 class="detail-section-title reveal">Module 1 — Scanner multi-exchanges</h3>
+            <p class="reveal">
+              Surveillance en temps réel des hot wallets Solana de quatre exchanges majeurs.
+              Chaque transaction sortante est analysée : si le montant tombe dans une plage
+              cible et que le wallet destinataire est frais, il est ajouté à la liste de
+              surveillance automatiquement.
+            </p>
+            <ul class="feature-list reveal">
+              <li>Exchanges surveillés : <strong>Binance, Gate.io, KuCoin, BitGet</strong></li>
+              <li>Plages de détection : 1–10 SOL (petits retraits) et 25–100 SOL (gros retraits)</li>
+              <li>Vérification "wallet frais" : rejeté si &gt; 15 transactions existantes</li>
+              <li>Un thread par exchange pour un polling indépendant toutes les 10s</li>
+              <li>File d'attente Discord (thread dédié) pour éviter les blocages d'API</li>
+              <li>Résistance aux timeouts RPC avec système de retry</li>
+            </ul>
+
+            <!-- Module 2 -->
+            <h3 class="detail-section-title reveal">Module 2 — Scanner PumpFun</h3>
+            <div class="detail-img-placeholder reveal">
+              <img src="assets/image_memecoins.png" alt="Scanner PumpFun — détection création de memecoins" loading="lazy" />
+            </div>
+            <p class="reveal">
+              Surveille en continu tous les wallets ajoutés à la watchlist. Dès qu'un wallet
+              interagit avec le programme PumpFun, le bot classe la transaction :
+            </p>
+            <ul class="feature-list reveal">
+              <li><strong>Création de coin</strong> — détectée par l'analyse des comptes instrution (≥ 8 comptes = création)</li>
+              <li>Filtre <strong style="white-space:nowrap">0 socials</strong> : vérification via l'API PumpFun — si twitter/telegram/website sont vides, c'est un lancement brut. Alerte envoyée.</li>
+              <li><strong>Achat PumpFun</strong> (wallets prioritaires) — détecté et alerté avec @everyone</li>
+              <li>Alerte Discord avec l'adresse du token et le lien <code>pump.fun/{mint}</code></li>
+              <li>Baseline au démarrage : ignore les vieilles transactions pour ne pas spammer</li>
+            </ul>
+
+            <!-- Module 3 -->
+            <h3 class="detail-section-title reveal">Module 3 — Discord Bot (panneau de contrôle)</h3>
+            <p class="reveal">
+              Le bot Discord est le panneau de contrôle central, déployé sur VPS.
+              Toutes les commandes sont des <strong>slash commands</strong> Discord, utilisables
+              depuis n'importe où via le serveur.
+            </p>
+            <ul class="feature-list reveal">
+              <li><code>/up</code> / <code>/stop</code> / <code>/status</code> — démarre/arrête/vérifie le scanner Binance</li>
+              <li><code>/up_pumpfun</code> / <code>/stop_pumpfun</code> — contrôle du scanner PumpFun</li>
+              <li><code>/up_diana</code> / <code>/stop_diana</code> — scanner spécialisé retraits 22–80 SOL</li>
+              <li><code>/check_rpcs</code> — teste la latence de toutes les clés API Helius simultanément</li>
+              <li><code>/clear_diana_fluffly</code> — vide la watchlist depuis Discord</li>
+              <li>Chaque commande vérifie que le processus est bien tué (pgrep Linux)</li>
+            </ul>
+
+          </div>
+
+          <div class="detail-sidebar">
+
+            <div class="sidebar-card reveal">
+              <h4>Stack technique</h4>
+              <div class="sidebar-tags">
+                <span class="tag tag-hi">Python</span>
+                <span class="tag tag-hi">Solana</span>
+                <span class="tag">discord.py</span>
+                <span class="tag">solana-py</span>
+                <span class="tag">solders</span>
+                <span class="tag">Helius RPC</span>
+                <span class="tag">PumpFun API</span>
+                <span class="tag">Discord Webhooks</span>
+                <span class="tag">asyncio</span>
+                <span class="tag">threading</span>
+                <span class="tag">VPS Linux</span>
+              </div>
+            </div>
+
+            <div class="sidebar-card reveal">
+              <h4>Exchanges surveillés</h4>
+              <div style="display:flex; flex-direction:column; gap:0.55rem; font-size:0.82rem; color:var(--clr-text-muted);">
+                <div style="display:flex; justify-content:space-between;">
+                  <span>Binance</span>
+                  <span style="color:var(--clr-accent); font-size:0.7rem;">5tzFk…</span>
+                </div>
+                <div style="display:flex; justify-content:space-between;">
+                  <span>Gate.io</span>
+                  <span style="color:var(--clr-accent); font-size:0.7rem;">u6PJ8…</span>
+                </div>
+                <div style="display:flex; justify-content:space-between;">
+                  <span>KuCoin</span>
+                  <span style="color:var(--clr-accent); font-size:0.7rem;">BmFdp…</span>
+                </div>
+                <div style="display:flex; justify-content:space-between;">
+                  <span>BitGet</span>
+                  <span style="color:var(--clr-accent); font-size:0.7rem;">A77HE…</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="sidebar-card reveal">
+              <h4>Infos</h4>
+              <div style="display:flex; flex-direction:column; gap:0.7rem; font-size:0.82rem; color:var(--clr-text-muted);">
+                <div>
+                  <span style="color:var(--clr-accent); display:block; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.2rem;">Type</span>
+                  Projet personnel
+                </div>
+                <div>
+                  <span style="color:var(--clr-accent); display:block; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.2rem;">Déploiement</span>
+                  VPS Linux 24/7
+                </div>
+                <div>
+                  <span style="color:var(--clr-accent); display:block; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.2rem;">Interface</span>
+                  Discord slash commands
+                </div>
+                <div>
+                  <span style="color:var(--clr-accent); display:block; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.2rem;">Blockchain</span>
+                  Solana — on-chain
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Fait avec ☕ par <strong>Oscar Lescot</strong> · 2026</p>
+    <p class="footer-tech">HTML · CSS · JS — From scratch</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

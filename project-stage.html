@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stage ISAGRI — Oscar Lescot</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="subpage" data-page="projects">
+
+  <div class="page-overlay" id="page-overlay"></div>
+  <div class="scroll-progress" id="scroll-progress"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-bracket">[</span>OL<span class="logo-bracket">]</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="about.html"    class="nav-link">À propos</a></li>
+      <li><a href="skills.html"   class="nav-link">Compétences</a></li>
+      <li><a href="projects.html" class="nav-link">Projets</a></li>
+      <li><a href="parcours.html" class="nav-link">Parcours</a></li>
+      <li><a href="contact.html"  class="nav-link">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+    <div class="hero-bg-grid"></div>
+
+    <section class="section" style="padding-top: 7rem;">
+      <div class="container">
+
+        <!-- Breadcrumb + titre -->
+        <div class="detail-banner reveal">
+          <a href="projects.html" class="detail-back">← Retour aux projets</a>
+          <div class="project-featured-label">⭐ Stage · ISAGRI · Agiris · Beauvais</div>
+          <h1 style="font-family:var(--font-display); font-size:clamp(1.8rem,4vw,3rem); font-weight:800; letter-spacing:-0.03em; line-height:1.1; margin-top:0.5rem;">
+            Pipeline Data · Dashboard · <span class="accent">IA conversationnelle</span>
+          </h1>
+          <div class="detail-meta-row">
+            <span class="detail-badge">Janv. → Mars 2026</span>
+            <span class="detail-badge">8 semaines</span>
+            <span class="detail-badge">Stage BUT 2</span>
+          </div>
+        </div>
+
+        <!-- Corps 2 colonnes -->
+        <div class="detail-layout">
+
+          <!-- Colonne principale -->
+          <div class="detail-main">
+
+            <div class="detail-img-placeholder reveal">
+              <img src="assets/transition_donne_stage.png" alt="Pipeline de données — transition et transformation" loading="lazy" />
+            </div>
+
+            <h3 class="detail-section-title reveal">Contexte</h3>
+            <p class="reveal">
+              Stage de 8 semaines au sein du pôle <strong>Agiris</strong> d'ISAGRI à Beauvais,
+              éditeur de logiciels comptables pour experts-comptables. La mission : concevoir
+              de zéro un système de données permettant d'analyser les revenus clients de leurs
+              utilisateurs, en passant par toute la chaîne — extraction, transformation,
+              stockage et visualisation.
+            </p>
+
+            <!-- Pipeline visuel -->
+            <h3 class="detail-section-title reveal">Architecture — Pipeline de données</h3>
+            <div class="detail-pipeline reveal">
+              <div class="dp-step">
+                <div class="dp-icon">🗄️</div>
+                <span>SQL Server</span>
+              </div>
+              <div class="dp-arr">→</div>
+              <div class="dp-step">
+                <div class="dp-icon">❄️</div>
+                <span>Snowflake RAW</span>
+              </div>
+              <div class="dp-arr">→</div>
+              <div class="dp-step">
+                <div class="dp-icon">⚙️</div>
+                <span>Staging</span>
+              </div>
+              <div class="dp-arr">→</div>
+              <div class="dp-step">
+                <div class="dp-icon">📊</div>
+                <span>BD Analytique</span>
+              </div>
+              <div class="dp-arr">→</div>
+              <div class="dp-step">
+                <div class="dp-icon">🖥️</div>
+                <span>Dashboard</span>
+              </div>
+              <div class="dp-arr">→</div>
+              <div class="dp-step">
+                <div class="dp-icon">🤖</div>
+                <span>Cortex AI</span>
+              </div>
+            </div>
+
+            <!-- Mission A -->
+            <h3 class="detail-section-title reveal">Mission A — Pipeline de données</h3>
+            <p class="reveal">
+              Extraction des données depuis une base SQL Server on-premise via Python,
+              puis chargement dans Snowflake organisé en trois couches selon la méthodologie
+              medallion architecture :
+            </p>
+            <ul class="feature-list reveal">
+              <li><strong>RAW</strong> — données brutes, copie fidèle du source sans transformation</li>
+              <li><strong>Staging</strong> — nettoyage, normalisation, gestion des types et des valeurs manquantes</li>
+              <li><strong>BD Analytique</strong> — tables agrégées et prêtes à la consommation par les dashboards</li>
+            </ul>
+
+            <!-- Mission B -->
+            <h3 class="detail-section-title reveal">Mission B — Dashboard analytique (Streamlit)</h3>
+            <div class="detail-img-placeholder reveal">
+              <img src="assets/dashboard_streamlit.png" alt="Dashboard Streamlit — stage ISAGRI" loading="lazy" />
+            </div>
+            <p class="reveal">
+              Interface web interactive développée avec <strong>Streamlit</strong>, connectée
+              directement à Snowflake. Le dashboard permet aux experts-comptables de visualiser
+              l'évolution des revenus de leurs clients avec :
+            </p>
+            <ul class="feature-list reveal">
+              <li>Graphiques interactifs par période (mensuel, trimestriel, annuel)</li>
+              <li>Filtres dynamiques par type de revenus et par client</li>
+              <li>Regroupements et comparaisons entre dossiers</li>
+              <li>Export des données filtrées</li>
+            </ul>
+
+            <!-- Mission C -->
+            <h3 class="detail-section-title reveal">Mission C — IA conversationnelle (Cortex AI)</h3>
+            <div class="detail-img-placeholder reveal">
+              <img src="assets/IA%20conversationnelle.png" alt="IA conversationnelle — Snowflake Cortex AI" loading="lazy" />
+            </div>
+            <p class="reveal">
+              Intégration de <strong>Snowflake Cortex AI</strong> pour permettre d'interroger
+              la base de données en langage naturel. L'utilisateur peut poser des questions comme
+              <em>"Quel est le client avec la plus forte croissance ce trimestre ?"</em> et
+              obtenir une réponse générée à partir des données réelles.
+            </p>
+            <ul class="feature-list reveal">
+              <li>Connexion du LLM directement aux tables Snowflake analytiques</li>
+              <li>Interface de chat intégrée dans le dashboard Streamlit</li>
+              <li>Requêtes SQL générées automatiquement depuis le langage naturel</li>
+            </ul>
+
+          </div>
+
+          <!-- Sidebar -->
+          <div class="detail-sidebar">
+
+            <div class="sidebar-card reveal">
+              <h4>Stack technique</h4>
+              <div class="sidebar-tags">
+                <span class="tag tag-hi">Snowflake</span>
+                <span class="tag tag-hi">Streamlit</span>
+                <span class="tag tag-hi">Cortex AI</span>
+                <span class="tag">Python</span>
+                <span class="tag">SQL Server</span>
+                <span class="tag">ETL</span>
+                <span class="tag">pyodbc</span>
+                <span class="tag">Pandas</span>
+              </div>
+            </div>
+
+            <div class="sidebar-card reveal">
+              <h4>Infos</h4>
+              <div style="display:flex; flex-direction:column; gap:0.7rem; font-size:0.82rem; color:var(--clr-text-muted);">
+                <div><span style="color:var(--clr-accent); display:block; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.2rem;">Entreprise</span>ISAGRI · Agiris</div>
+                <div><span style="color:var(--clr-accent); display:block; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.2rem;">Lieu</span>Beauvais, Oise</div>
+                <div><span style="color:var(--clr-accent); display:block; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.2rem;">Durée</span>8 semaines<br/>Janv. → Mars 2026</div>
+                <div><span style="color:var(--clr-accent); display:block; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.2rem;">Type</span>Stage BUT 2e année</div>
+              </div>
+            </div>
+
+            <div class="sidebar-card reveal">
+              <h4>Contact</h4>
+              <div class="detail-links">
+                <a href="contact.html" class="detail-ext-link">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  Me contacter
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Fait avec ☕ par <strong>Oscar Lescot</strong> · 2026</p>
+    <p class="footer-tech">HTML · CSS · JS — From scratch</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

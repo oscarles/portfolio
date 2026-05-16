@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boutique de Cookies — Oscar Lescot</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="subpage" data-page="projects">
+    <div class="page-overlay" id="page-overlay"></div>
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <nav class="navbar" id="navbar">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-bracket">[</span>OL<span class="logo-bracket">]</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="about.html"    class="nav-link">À propos</a></li>
+        <li><a href="skills.html"   class="nav-link">Compétences</a></li>
+        <li><a href="projects.html" class="nav-link">Projets</a></li>
+        <li><a href="parcours.html" class="nav-link">Parcours</a></li>
+        <li><a href="contact.html"  class="nav-link">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <main>
+      <div class="hero-bg-grid"></div>
+
+      <section class="section" style="padding-top: 7rem">
+        <div class="container">
+          <div class="detail-banner reveal">
+            <a href="projects.html" class="detail-back">← Retour aux projets</a>
+            <div class="project-featured-label">
+              🍪 SAE · BUT 2 · Projet académique
+            </div>
+            <h1
+              style="
+                font-family: var(--font-display);
+                font-size: clamp(1.8rem, 4vw, 3rem);
+                font-weight: 800;
+                letter-spacing: -0.03em;
+                line-height: 1.1;
+                margin-top: 0.5rem;
+              "
+            >
+              Boutique de <span class="accent">Cookies</span>
+            </h1>
+            <div class="detail-meta-row">
+              <span class="detail-badge">E-commerce</span>
+              <span class="detail-badge">Architecture MVC</span>
+              <span class="detail-badge">BUT 2</span>
+            </div>
+          </div>
+
+          <div class="detail-layout">
+            <div class="detail-main">
+              <div class="detail-img-placeholder reveal">
+                <img src="assets/acceuil_cookie.png" alt="Boutique de Cookies — catalogue et accueil" loading="lazy" />
+              </div>
+
+              <h3 class="detail-section-title reveal">Présentation</h3>
+              <p class="reveal">
+                Application e-commerce complète réalisée dans le cadre d'un
+                projet académique (SAE). L'objectif : construire de A à Z un
+                site de vente en ligne en respectant une
+                <strong>architecture MVC stricte</strong>, sans framework — tout
+                en PHP natif avec PDO et Composer pour la gestion des
+                dépendances.
+              </p>
+
+              <h3 class="detail-section-title reveal">Fonctionnalités</h3>
+              <ul class="feature-list reveal">
+                <li>Catalogue de produits avec filtres, tri et recherche</li>
+                <li>Panier persistant côté serveur (sessions PHP)</li>
+                <li>Système de paiement en ligne (intégration simulée)</li>
+                <li>
+                  Gestion des comptes utilisateurs : inscription, connexion,
+                  profil
+                </li>
+                <li>Système d'avis clients avec notes et commentaires</li>
+                <li>
+                  Backoffice admin : gestion des produits, commandes,
+                  utilisateurs
+                </li>
+                <li>
+                  Dashboard de statistiques (revenus, produits les plus vendus,
+                  évolution)
+                </li>
+                <li>API REST interne pour les échanges AJAX (panier, avis)</li>
+              </ul>
+
+              <h3 class="detail-section-title reveal">Architecture MVC</h3>
+              <p class="reveal">
+                Le projet suit une organisation en couches strictement séparées
+                :
+              </p>
+              <ul class="feature-list reveal">
+                <li>
+                  <strong>Models</strong> — accès aux données via PDO, requêtes
+                  SQL préparées
+                </li>
+                <li>
+                  <strong>Views</strong> — templates PHP avec séparation
+                  logique/affichage
+                </li>
+                <li>
+                  <strong>Controllers</strong> — gestion des routes et de la
+                  logique métier
+                </li>
+                <li>
+                  <strong>Router</strong> — système de routing custom via
+                  .htaccess
+                </li>
+              </ul>
+
+              <div class="detail-img-placeholder reveal">
+                <img src="assets/mvc_site.png" alt="Boutique de Cookies — architecture MVC et backoffice" loading="lazy" />
+              </div>
+            </div>
+
+            <div class="detail-sidebar">
+              <div class="sidebar-card reveal">
+                <h4>Stack technique</h4>
+                <div class="sidebar-tags">
+                  <span class="tag tag-hi">PHP</span>
+                  <span class="tag tag-hi">MySQL</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">MVC</span>
+                  <span class="tag">API REST</span>
+                  <span class="tag">PDO</span>
+                  <span class="tag">AJAX</span>
+                  <span class="tag">Bootstrap</span>
+                </div>
+              </div>
+
+              <div class="sidebar-card reveal">
+                <h4>Infos</h4>
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.7rem;
+                    font-size: 0.82rem;
+                    color: var(--clr-text-muted);
+                  "
+                >
+                  <div>
+                    <span
+                      style="
+                        color: var(--clr-accent);
+                        display: block;
+                        font-size: 0.7rem;
+                        text-transform: uppercase;
+                        letter-spacing: 0.1em;
+                        margin-bottom: 0.2rem;
+                      "
+                      >Type</span
+                    >SAE — Projet académique
+                  </div>
+                  <div>
+                    <span
+                      style="
+                        color: var(--clr-accent);
+                        display: block;
+                        font-size: 0.7rem;
+                        text-transform: uppercase;
+                        letter-spacing: 0.1em;
+                        margin-bottom: 0.2rem;
+                      "
+                      >Formation</span
+                    >BUT Informatique · IUT d'Amiens
+                  </div>
+                  <div>
+                    <span
+                      style="
+                        color: var(--clr-accent);
+                        display: block;
+                        font-size: 0.7rem;
+                        text-transform: uppercase;
+                        letter-spacing: 0.1em;
+                        margin-bottom: 0.2rem;
+                      "
+                      >Rôle</span
+                    >Développeur full-stack
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Fait avec ☕ par <strong>Oscar Lescot</strong> · 2026</p>
+      <p class="footer-tech">HTML · CSS · JS — From scratch</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
