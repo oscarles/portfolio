@@ -191,6 +191,7 @@ const $$ = (sel) => document.querySelectorAll(sel);
   if (about) observer.observe(about);
 })();
 
+
 // ─────────────────────────────────────────────────────────────
 //  8. TYPING EFFECT sur le hero-tag
 // ─────────────────────────────────────────────────────────────
@@ -207,26 +208,25 @@ const $$ = (sel) => document.querySelectorAll(sel);
   let textIndex  = 0;
   let charIndex  = 0;
   let isDeleting = false;
-  let isPaused   = false;
 
   function type() {
     const current = texts[textIndex];
     if (!isDeleting) {
-      heroTag.textContent = current.substring(0, charIndex + 1);
       charIndex++;
+      heroTag.textContent = current.substring(0, charIndex);
       if (charIndex === current.length) {
-        isPaused = true;
-        setTimeout(() => { isPaused = false; isDeleting = true; }, 2400);
+        setTimeout(() => { isDeleting = true; type(); }, 2400);
+        return;
       }
     } else {
-      heroTag.textContent = current.substring(0, charIndex - 1);
       charIndex--;
+      heroTag.textContent = current.substring(0, charIndex);
       if (charIndex === 0) {
         isDeleting = false;
         textIndex  = (textIndex + 1) % texts.length;
       }
     }
-    if (!isPaused) setTimeout(type, isDeleting ? 40 : 70);
+    setTimeout(type, isDeleting ? 40 : 70);
   }
   setTimeout(type, 1500);
 })();
