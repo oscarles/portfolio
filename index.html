@@ -27,21 +27,7 @@
     <div class="cursor-follower" id="cursor-follower"></div>
 
     <!-- Nav -->
-    <nav class="navbar" id="navbar">
-      <a href="index.html" class="nav-logo">
-        <span class="logo-bracket">[</span>OL<span class="logo-bracket">]</span>
-      </a>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="about.html" class="nav-link">À propos</a></li>
-        <li><a href="skills.html" class="nav-link">Compétences</a></li>
-        <li><a href="projects.html" class="nav-link">Projets</a></li>
-        <li><a href="parcours.html" class="nav-link">Parcours</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
-      </ul>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
+    <script src="navbar.js"></script>
 
     <!-- Hero -->
     <section class="hero" id="hero">
@@ -128,10 +114,23 @@
       </div>
     </section>
 
+    <!-- Citation -->
+    <section class="section section-dark">
+      <div class="container">
+        <div style="max-width:680px; margin:0 auto; text-align:center;" class="reveal">
+          <p style="font-size:0.7rem; font-family:var(--font-mono); color:var(--clr-accent); letter-spacing:0.1em; margin-bottom:1.25rem;">// Citation</p>
+          <blockquote style="font-family:var(--font-display); font-size:clamp(1.1rem,2.5vw,1.4rem); font-weight:600; color:var(--clr-text); line-height:1.5; font-style:italic;">
+            "Le succès, c'est aller d'échec en échec sans perdre son enthousiasme."
+          </blockquote>
+          <p style="margin-top:1rem; font-size:0.78rem; color:var(--clr-text-muted); font-family:var(--font-mono);">— Winston Churchill</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
-      <p>Fait avec ☕ par <strong>Oscar Lescot</strong> · 2026</p>
-      <p class="footer-tech">HTML · CSS · JS — From scratch</p>
+      <p><strong>Oscar Lescot</strong> · 2026</p>
+      <p class="footer-tech">HTML · CSS · JS</p>
     </footer>
 
     <script src="script.js"></script>

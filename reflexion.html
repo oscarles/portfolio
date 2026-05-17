@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Réflexion sur mes acquis — Oscar Lescot</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Grille compétences PN ── */
+    .pn-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .pn-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .pn-card:hover {
+      border-color: rgba(0, 229, 160, 0.25);
+      transform: translateY(-3px);
+    }
+
+    .pn-card.strong {
+      border-color: rgba(0, 229, 160, 0.35);
+    }
+
+    .pn-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .pn-num {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--clr-text-muted);
+      min-width: 24px;
+    }
+
+    .pn-label {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--clr-text);
+    }
+
+    .pn-card.strong .pn-label {
+      color: var(--clr-accent);
+    }
+
+    .pn-desc {
+      font-size: 0.83rem;
+      color: var(--clr-text-muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    /* Badge de niveau */
+    .pn-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      padding: 3px 10px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--clr-text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .pn-badge.ok {
+      border-color: rgba(0, 229, 160, 0.35);
+      color: var(--clr-accent);
+    }
+
+    /* ── Bloc citation ── */
+    .reflexion-quote {
+      border-left: 3px solid var(--clr-accent);
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      background: rgba(0,229,160,0.04);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .reflexion-quote p {
+      font-size: 1rem;
+      color: var(--clr-text);
+      line-height: 1.75;
+      font-style: italic;
+    }
+
+    /* ── Bloc difficulté ── */
+    .diff-block {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .diff-block + .diff-block {
+      margin-top: 1.25rem;
+    }
+
+    .diff-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      padding: 3px 10px;
+      border-radius: 100px;
+      border: 1px solid rgba(0,229,160,0.3);
+      color: var(--clr-accent);
+      margin-bottom: 0.85rem;
+    }
+
+    .diff-tag.warn {
+      border-color: rgba(255, 180, 0, 0.3);
+      color: #ffb400;
+    }
+
+    .diff-block h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      margin-bottom: 0.6rem;
+      color: var(--clr-text);
+    }
+
+    .diff-block p {
+      font-size: 0.88rem;
+      color: var(--clr-text-muted);
+      line-height: 1.75;
+    }
+
+    .diff-block ul {
+      margin-top: 0.75rem;
+      padding-left: 1.25rem;
+      font-size: 0.88rem;
+      color: var(--clr-text-muted);
+      line-height: 1.9;
+    }
+
+    /* ── Bloc analyse ── */
+    .analyse-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 640px) {
+      .analyse-grid { grid-template-columns: 1fr; }
+    }
+
+    .analyse-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    .analyse-card h4 {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      color: var(--clr-accent);
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .analyse-card p {
+      font-size: 0.85rem;
+      color: var(--clr-text-muted);
+      line-height: 1.75;
+    }
+  </style>
+</head>
+<body class="subpage" data-page="reflexion">
+
+  <div class="page-overlay" id="page-overlay"></div>
+  <div class="scroll-progress" id="scroll-progress"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <script src="navbar.js"></script>
+
+  <main>
+    <div class="hero-bg-grid"></div>
+
+    <header class="page-intro">
+      <div class="crumb">
+        <a href="index.html">Accueil</a>
+        <span class="crumb-sep">/</span>
+        <span>Réflexion</span>
+      </div>
+      <h1>Réflexion sur <span class="accent">mes acquis</span>.</h1>
+      <p class="lead">
+        Deux ans de BUT Informatique — ce que j'ai appris, comment je l'ai appris,
+        et surtout pourquoi ça compte.
+      </p>
+    </header>
+
+    <!-- 01 — Compétences PN -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num">01</span>
+          <h2 class="section-title">Compétences acquises</h2>
+        </div>
+
+        <p style="color:var(--clr-text-muted); font-size:0.88rem; max-width:680px; margin-bottom:0.5rem;">
+          Le Programme National du BUT Informatique définit 6 compétences cibles. Voici où j'en suis
+          à l'issue de ma 2e année, en croisant mes expériences académiques et mon stage.
+        </p>
+
+        <div class="pn-grid">
+
+          <div class="pn-card strong reveal">
+            <div class="pn-card-header">
+              <span class="pn-num">C1</span>
+              <span class="pn-label">Réaliser — Développer</span>
+            </div>
+            <p class="pn-desc">
+              Concevoir, coder et livrer des applications fonctionnelles. C'est ma compétence
+              la plus naturelle : du front JavaScript à la data pipeline Python, je passe
+              directement à l'implémentation et j'itère vite.
+            </p>
+            <span class="pn-badge ok">Confirmé</span>
+          </div>
+
+          <div class="pn-card reveal">
+            <div class="pn-card-header">
+              <span class="pn-num">C2</span>
+              <span class="pn-label">Optimiser</span>
+            </div>
+            <p class="pn-desc">
+              Améliorer les performances et la qualité du code. Travaillé en algorithmique
+              (chess bot, alpha-bêta), mais encore en progression sur les aspects profiling
+              et tests systématiques en contexte professionnel.
+            </p>
+            <span class="pn-badge">Avancé</span>
+          </div>
+
+          <div class="pn-card reveal">
+            <div class="pn-card-header">
+              <span class="pn-num">C3</span>
+              <span class="pn-label">Administrer des systèmes</span>
+            </div>
+            <p class="pn-desc">
+              Protocoles réseau, Linux, systèmes communicants. Bases solides acquises en cours,
+              mises en pratique via déploiement VPS (bot Solana) et configuration de connexions
+              distantes (SQL Server on-premise → cloud Snowflake).
+            </p>
+            <span class="pn-badge">Avancé</span>
+          </div>
+
+          <div class="pn-card strong reveal">
+            <div class="pn-card-header">
+              <span class="pn-num">C4</span>
+              <span class="pn-label">Gérer des données</span>
+            </div>
+            <p class="pn-desc">
+              Modélisation, SQL, ETL, entrepôt de données. Mon point fort, nourri par le stage
+              ISAGRI : architecture medallion, 49 tables de données fiscales, pipeline complet
+              de l'extraction à la visualisation.
+            </p>
+            <span class="pn-badge ok">Confirmé</span>
+          </div>
+
+          <div class="pn-card reveal">
+            <div class="pn-card-header">
+              <span class="pn-num">C5</span>
+              <span class="pn-label">Conduire un projet</span>
+            </div>
+            <p class="pn-desc">
+              Méthodes agiles, planification, documentation, gestion des risques. Pratiqué
+              en SAE (Covo'IUT, boutique cookies) avec des équipes de 3-4 personnes.
+              Marge de progression sur la rigueur de la documentation.
+            </p>
+            <span class="pn-badge">Avancé</span>
+          </div>
+
+          <div class="pn-card reveal">
+            <div class="pn-card-header">
+              <span class="pn-num">C6</span>
+              <span class="pn-label">Collaborer en équipe</span>
+            </div>
+            <p class="pn-desc">
+              Travailler dans une équipe informatique, communiquer, partager les tâches.
+              Pratiqué sur toutes les SAE. Point d'amélioration identifié : mieux
+              partager l'avancement en temps réel plutôt qu'en fin de sprint.
+            </p>
+            <span class="pn-badge">Avancé</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 — Difficultés surmontées -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num">02</span>
+          <h2 class="section-title">Difficultés surmontées</h2>
+        </div>
+
+        <div class="reflexion-quote reveal">
+          <p>
+            "La vraie difficulté du stage n'était pas tant technique : c'était de m'adapter
+            simultanément à des outils inconnus et à un vocabulaire fiscal très spécialisé,
+            dans un délai contraint."
+          </p>
+        </div>
+
+        <div class="diff-block reveal">
+          <span class="diff-tag">Défi n°1 — Outils inconnus</span>
+          <h3>Snowflake, dbt, Streamlit — apprendre sur le tas en autonomie totale</h3>
+          <p>
+            À mon arrivée chez ISAGRI, aucun de ces outils ne m'était familier. Aucun collègue
+            n'était disponible pour me les expliquer — la mission était posée, les ressources
+            à ma disposition, et le reste m'appartenait.
+          </p>
+          <p style="margin-top: 0.75rem;">
+            Ma méthode : créer des <strong>micro-projets d'apprentissage</strong> avec des données fictives
+            légères avant de toucher aux vraies données. D'abord charger quelques lignes dans Snowflake,
+            puis les transformer avec dbt, puis exposer le résultat via Streamlit — chaque brique
+            validée seule avant d'être assemblée. Cette approche m'a permis de maîtriser chaque
+            outil sans me noyer dans la complexité globale du projet.
+          </p>
+        </div>
+
+        <div class="diff-block reveal">
+          <span class="diff-tag">Défi n°2 — Données fiscales complexes</span>
+          <h3>49 tables, une base de données opaque, et des codes comme "1AJ"</h3>
+          <p>
+            La base de données représentait la structure interne d'une déclaration de revenus
+            (formulaire 2042). Les données n'étaient pas stockées avec des noms explicites
+            mais sous la forme de codes cases : <code style="color:var(--clr-accent)">donne | value → 1AJ | 20000</code>.
+            Comprendre à quoi correspondait chaque valeur nécessitait de connaître la
+            réglementation fiscale française — un domaine qui n'a rien d'informatique.
+          </p>
+          <ul>
+            <li>Recherche active sur la signification de chaque code de la déclaration 2042</li>
+            <li>Reconstruction mentale du modèle de données à partir des 49 tables</li>
+            <li>Allers-retours constants entre la documentation fiscale et la base pour valider la compréhension</li>
+          </ul>
+          <p style="margin-top: 0.75rem;">
+            Ce qui m'a le plus surpris : comprendre un système ne demande pas forcément
+            des compétences dans le domaine en question — ça demande de la méthode,
+            de la patience, et d'accepter de ne pas tout savoir d'emblée.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 03 — Adaptation & autonomie -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num">03</span>
+          <h2 class="section-title">Adaptation &amp; autonomie</h2>
+        </div>
+
+        <p class="reveal" style="color:var(--clr-text-muted); font-size:0.9rem; max-width:720px; line-height:1.85;">
+          Le stage m'a placé dans une situation que le BUT prépare conceptuellement mais qu'on
+          ne mesure vraiment qu'en la vivant : être seul responsable d'une livraison, sans
+          possibilité de déléguer les blocages. Deux mois pour passer de zéro à un POC
+          fonctionnel, présenté à l'équipe et validé comme base de travail pour la suite.
+        </p>
+
+        <div class="analyse-grid" style="margin-top:2rem;">
+
+          <div class="analyse-card reveal">
+            <h4>Ce que j'ai développé</h4>
+            <p>
+              Apprendre à décomposer un problème inconnu en sous-problèmes maîtrisables.
+              Créer des versions minimales (micro-projets) pour valider une compréhension
+              avant de l'appliquer à grande échelle. Ne pas bloquer sur l'incompréhension :
+              avancer en posant des hypothèses, les tester, les corriger.
+            </p>
+          </div>
+
+          <div class="analyse-card reveal">
+            <h4>Ce que j'aurais fait différemment</h4>
+            <p>
+              Documenter au fur et à mesure. J'ai tout gardé en tête pendant 8 semaines,
+              mais au moment de rédiger la documentation finale, reconstituer le raisonnement
+              derrière chaque choix était laborieux. Une documentation vivante m'aurait
+              économisé du temps et rendu le projet plus transmissible.
+            </p>
+          </div>
+
+          <div class="analyse-card reveal">
+            <h4>Innovation</h4>
+            <p>
+              Face à des outils inconnus, j'ai mis en place une méthode que je n'avais
+              pas apprise en cours : des micro-projets avec des données fictives pour
+              valider chaque brique séparément avant de l'intégrer au vrai système.
+              Une approche que je réutiliserai sur tout nouvel environnement technique.
+            </p>
+          </div>
+
+          <div class="analyse-card reveal">
+            <h4>Relationnel &amp; contexte professionnel</h4>
+            <p>
+              Travailler dans un environnement où les interlocuteurs ont un cadre métier
+              différent (comptabilité, fiscalité) m'a appris à reformuler les questions
+              techniques en termes compréhensibles, et à écouter le besoin avant
+              de proposer une solution.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 — Prise de recul -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num">04</span>
+          <h2 class="section-title">Prise de recul — le comment et le pourquoi</h2>
+        </div>
+
+        <div class="exp-card reveal" style="margin-top:2rem;">
+          <div class="exp-body">
+            <p>
+              Si je devais résumer ce que ces deux années m'ont vraiment appris, ce n'est pas
+              une liste de langages — c'est une façon de faire face à l'inconnu.
+            </p>
+            <p style="margin-top:1rem;">
+              Le BUT Informatique m'a donné des outils (<strong>Python, SQL, PHP, Java, réseaux,
+              gestion de projet</strong>), mais le stage m'a appris à <strong>me servir de ces outils
+              dans un contexte réel où personne ne valide chaque étape</strong>. La différence est
+              fondamentale : en cours, l'erreur est attendue et corrigée ; en entreprise,
+              l'erreur coûte du temps et parfois de la confiance.
+            </p>
+            <p style="margin-top:1rem;">
+              Ce que j'ai compris sur ma façon d'apprendre : je fonctionne par expérimentation.
+              Je ne comprends vraiment un concept qu'en le cassant, en l'appliquant à un
+              problème concret, en voyant ce que ça produit. C'est pour ça que les projets
+              personnels (chess bot, bot Solana) ne sont pas du hors-sujet par rapport à
+              ma formation — ils sont l'endroit où je consolide vraiment les acquis théoriques.
+            </p>
+            <p style="margin-top:1rem;">
+              Ce que je veux travailler en BUT 3 : la rigueur de la documentation, mais aussi
+              tout ce qui relève de la gestion de projet et du travail en groupe — mieux
+              communiquer sur l'avancement, répartir les tâches de façon plus structurée,
+              et savoir gérer les désaccords ou les blocages dans une équipe sans que ça
+              freine la production.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p><strong>Oscar Lescot</strong> · 2026</p>
+    <p class="footer-tech">HTML · CSS · JS</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

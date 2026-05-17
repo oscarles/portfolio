@@ -8,6 +8,109 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    .traits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .trait-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: var(--transition);
+    }
+    .trait-card:hover { border-color: rgba(0,229,160,0.25); transform: translateY(-3px); }
+    .trait-num {
+      font-size: 0.7rem;
+      color: var(--clr-accent);
+      font-family: var(--font-mono);
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+    .trait-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--clr-text);
+      margin-bottom: 0.6rem;
+    }
+    .trait-card p { font-size: 0.85rem; color: var(--clr-text-muted); line-height: 1.75; }
+
+    .qf-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+    @media (max-width: 640px) { .qf-grid { grid-template-columns: 1fr; } }
+    .qf-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .qf-card h3 {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      color: var(--clr-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.85rem;
+    }
+    .qf-card ul { padding-left: 1.1rem; font-size: 0.85rem; color: var(--clr-text-muted); line-height: 2; }
+    .qf-card p  { font-size: 0.85rem; color: var(--clr-text-muted); line-height: 1.8; }
+    .qf-card.weakness { border-color: rgba(0,229,160,0.2); }
+    .qf-card.weakness h3 { color: var(--clr-text-muted); }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+    .value-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: var(--transition);
+    }
+    .value-card:hover { border-color: rgba(0,229,160,0.25); transform: translateY(-3px); }
+    .value-num {
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      color: var(--clr-accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .value-card h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--clr-text);
+      margin-bottom: 0.5rem;
+    }
+    .value-card p { font-size: 0.85rem; color: var(--clr-text-muted); line-height: 1.75; }
+
+    .passion-block {
+      margin-top: 1.25rem;
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .passion-block p { font-size: 0.88rem; color: var(--clr-text-muted); line-height: 1.85; margin-top: 0.75rem; }
+    .passion-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      padding: 3px 10px;
+      border-radius: 100px;
+      border: 1px solid rgba(0,229,160,0.3);
+      color: var(--clr-accent);
+    }
+  </style>
 </head>
 <body class="subpage" data-page="about">
 
@@ -17,21 +120,7 @@
   <div class="cursor" id="cursor"></div>
   <div class="cursor-follower" id="cursor-follower"></div>
 
-  <nav class="navbar" id="navbar">
-    <a href="index.html" class="nav-logo">
-      <span class="logo-bracket">[</span>OL<span class="logo-bracket">]</span>
-    </a>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="about.html"    class="nav-link">À propos</a></li>
-      <li><a href="skills.html"   class="nav-link">Compétences</a></li>
-      <li><a href="projects.html" class="nav-link">Projets</a></li>
-      <li><a href="parcours.html" class="nav-link">Parcours</a></li>
-      <li><a href="contact.html"  class="nav-link">Contact</a></li>
-    </ul>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+  <script src="navbar.js"></script>
 
   <main>
     <div class="hero-bg-grid"></div>
@@ -57,28 +146,29 @@
         <div class="about-grid">
           <div class="about-text reveal">
             <p>
-              Je m'appelle <strong>Oscar Lescot</strong>, étudiant en
-              <strong>BUT Informatique 2e année</strong> à l'IUT d'Amiens.
-              Je construis des solutions complètes — du pipeline de données
-              au front-end — en soignant autant la logique que les détails.
+              Je m'appelle <strong>Oscar Lescot</strong>, j'ai 19 ans et je suis étudiant en
+              <strong>BUT Informatique 2e année</strong> à l'IUT d'Amiens. Ce qui me motive,
+              c'est de construire des choses qui fonctionnent vraiment — pas juste du code
+              qui tourne, mais des solutions pensées, solides et utiles.
             </p>
             <p>
-              Mon stage chez <strong>ISAGRI (pôle Agiris)</strong> m'a permis
-              de concevoir un système data end-to-end : extraction depuis SQL Server,
-              transformation dans Snowflake, dashboard analytique avec Streamlit,
-              et intégration d'une IA conversationnelle via <strong>Cortex AI</strong>.
+              Mon stage chez <strong>ISAGRI (pôle Agiris)</strong> m'a permis de mettre ça en
+              pratique concrètement : concevoir de zéro un système data complet, de l'extraction
+              SQL Server jusqu'à un dashboard Streamlit et une IA conversationnelle via
+              <strong>Cortex AI</strong> — en 8 semaines, seul, sur des données fiscales
+              que je ne connaissais pas.
             </p>
             <p>
-              En dehors du code, je m'intéresse à la <strong>crypto &amp; blockchain</strong>,
-              aux sports et à l'algorithmique — j'ai codé un moteur d'échecs
-              JavaScript atteignant ~2 500 Elo pour le plaisir.
+              En dehors des études, je code pour le plaisir : un moteur d'échecs JavaScript
+              à ~2 500 Elo, un bot de surveillance blockchain sur Solana. J'explore aussi
+              activement la <strong>crypto &amp; blockchain</strong> depuis plusieurs années.
             </p>
             <a href="assets/CV%20Oscar%20Lescot.pdf" class="btn btn-primary" download="CV Oscar Lescot.pdf">Télécharger mon CV</a>
           </div>
           <div class="about-stats reveal">
             <div class="stat-card">
-              <span class="stat-num">2+</span>
-              <span class="stat-label">Ans de code</span>
+              <span class="stat-num">3+</span>
+              <span class="stat-label">Langages appris seul</span>
             </div>
             <div class="stat-card">
               <span class="stat-num">6+</span>
@@ -89,67 +179,108 @@
               <span class="stat-label">Semaines de stage</span>
             </div>
             <div class="stat-card">
-              <span class="stat-num">∞</span>
-              <span class="stat-label">Tasses de café</span>
+              <span class="stat-num">5+</span>
+              <span class="stat-label">Projets réalisés</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Timeline -->
+    <!-- Personnalité & Valeurs -->
     <section class="section section-dark">
       <div class="container">
         <div class="section-header">
           <span class="section-num">02</span>
+          <h2 class="section-title">Personnalité &amp; valeurs</h2>
+        </div>
+
+        <!-- Traits -->
+        <div class="traits-grid">
+          <div class="trait-card reveal">
+            <span class="trait-num">// 01</span>
+            <h3>Rigoureux</h3>
+            <p>Je ne bâcle pas. Que ce soit du code ou un rendu, j'ai besoin que le résultat soit propre et solide avant de considérer quelque chose comme terminé.</p>
+          </div>
+          <div class="trait-card reveal">
+            <span class="trait-num">// 02</span>
+            <h3>Ambitieux</h3>
+            <p>Je me fixe des objectifs élevés et je cherche à livrer un travail qui dépasse les attentes — en qualité, en rigueur, et en allant au fond des problèmes plutôt qu'en restant en surface.</p>
+          </div>
+          <div class="trait-card reveal">
+            <span class="trait-num">// 03</span>
+            <h3>Curieux</h3>
+            <p>J'apprends pour le plaisir d'apprendre. Un nouveau langage, un domaine inconnu, un algorithme complexe — j'ai besoin de comprendre comment les choses fonctionnent.</p>
+          </div>
+        </div>
+
+        <!-- Qualités / Faiblesse -->
+        <div class="qf-grid" style="margin-top:2rem;">
+          <div class="qf-card reveal">
+            <h3>Qualités</h3>
+            <ul>
+              <li>Autonome — je trouve par moi-même avant de demander</li>
+              <li>Polyvalent — à l'aise du front-end à la data pipeline</li>
+              <li>Orienté résultats — je livre quelque chose de fonctionnel</li>
+              <li>Apprend vite sur des outils inconnus</li>
+              <li>Impliqué au-delà du strict nécessaire</li>
+            </ul>
+          </div>
+          <div class="qf-card weakness reveal">
+            <h3>Ce que je travaille</h3>
+            <p>J'ai tendance à chercher seul trop longtemps avant de demander de l'aide. Par conviction que je vais finir par trouver — ce qui est souvent vrai, mais pas toujours la meilleure approche en termes d'efficacité collective.</p>
+          </div>
+        </div>
+
+        <!-- Valeurs -->
+        <div class="values-grid" style="margin-top:2rem;">
+          <div class="value-card reveal">
+            <span class="value-num">#1 — Valeur</span>
+            <h3>Apprentissage continu</h3>
+            <p>Stagner, c'est reculer. Je consacre du temps en dehors des cours à des projets personnels qui me poussent à explorer des domaines que le cursus n'aborde pas encore.</p>
+          </div>
+          <div class="value-card reveal">
+            <span class="value-num">#2 — Valeur</span>
+            <h3>Exigence personnelle</h3>
+            <p>Je me tiens à un standard élevé même sans pression extérieure. Ce n'est pas du perfectionnisme — c'est la conviction que le travail bien fait vaut le temps investi.</p>
+          </div>
+        </div>
+
+        <!-- Passion -->
+        <div class="passion-block reveal" style="margin-top:2rem;">
+          <span class="passion-tag">// Passion</span>
+          <p>
+            En dehors du code professionnel, j'ai développé un <strong>moteur d'échecs JavaScript</strong> atteignant ~2 500 Elo — algorithme Negamax avec élagage alpha-bêta, table de transposition Zobrist, livre d'ouvertures PGN. Pas parce que c'était utile, mais parce que le problème était fascinant. Je m'intéresse aussi activement à la <strong>blockchain et aux cryptomonnaies</strong> — un domaine à l'intersection de la technique, de l'économie et de l'innovation que j'explore depuis plusieurs années.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Parcours résumé -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num">03</span>
           <h2 class="section-title">Parcours</h2>
         </div>
-        <div class="timeline">
-
-          <div class="tl-item reveal">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <span class="tl-date">Janv. → Mars 2026</span>
-              <h3>Stage — ISAGRI · Agiris</h3>
-              <p>Pipeline SQL Server → Snowflake, dashboard Streamlit, IA Cortex AI.</p>
-            </div>
-          </div>
-
-          <div class="tl-item reveal">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <span class="tl-date">2024 → 2026</span>
-              <h3>BUT Informatique — 2e année</h3>
-              <p>IUT d'Amiens · Full-stack, BDD, algorithmique, réseaux, gestion de projet.</p>
-            </div>
-          </div>
-
-          <div class="tl-item reveal">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <span class="tl-date">2023 → 2024</span>
-              <h3>BUT Informatique — 1re année</h3>
-              <p>IUT d'Amiens · Python, Java, C, web, SQL, architecture logicielle.</p>
-            </div>
-          </div>
-
-          <div class="tl-item reveal">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <span class="tl-date">2023</span>
-              <h3>Baccalauréat</h3>
-              <p>Spécialités Mathématiques &amp; NSI.</p>
-            </div>
-          </div>
-
+        <div class="reveal" style="color:var(--clr-text-muted); font-size:0.88rem; line-height:1.9; max-width:680px;">
+          <p>
+            Bac mention Bien (spé Maths &amp; NSI) en 2023 · BUT Informatique à l'IUT d'Amiens
+            depuis 2023 · Stage de 8 semaines chez <strong>ISAGRI</strong> (Beauvais) en
+            janvier 2026 — développeur Data &amp; IA.
+          </p>
         </div>
+        <a href="parcours.html" class="btn btn-ghost reveal" style="margin-top:1.5rem; display:inline-block;">
+          Voir le parcours complet →
+        </a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>Fait avec ☕ par <strong>Oscar Lescot</strong> · 2026</p>
-    <p class="footer-tech">HTML · CSS · JS — From scratch</p>
+    <p><strong>Oscar Lescot</strong> · 2026</p>
+    <p class="footer-tech">HTML · CSS · JS</p>
   </footer>
 
   <script src="script.js"></script>

@@ -17,21 +17,7 @@
   <div class="cursor" id="cursor"></div>
   <div class="cursor-follower" id="cursor-follower"></div>
 
-  <nav class="navbar" id="navbar">
-    <a href="index.html" class="nav-logo">
-      <span class="logo-bracket">[</span>OL<span class="logo-bracket">]</span>
-    </a>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="about.html"    class="nav-link">À propos</a></li>
-      <li><a href="skills.html"   class="nav-link">Compétences</a></li>
-      <li><a href="projects.html" class="nav-link">Projets</a></li>
-      <li><a href="parcours.html" class="nav-link active">Parcours</a></li>
-      <li><a href="contact.html"  class="nav-link">Contact</a></li>
-    </ul>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+  <script src="navbar.js"></script>
 
   <main>
     <div class="hero-bg-grid"></div>
@@ -120,6 +106,7 @@
               <span class="exp-date">2023 → 2026 · IUT d'Amiens · Université Picardie Jules Verne</span>
               <div class="exp-title">BUT <span class="accent">Informatique</span></div>
               <div class="exp-subtitle">Bachelor Universitaire de Technologie · Informatique</div>
+              <div class="exp-subtitle" style="margin-top:0.25rem; color:var(--clr-accent);">Parcours Réalisation d'Applications : Conception, Développement, Validation</div>
             </div>
           </div>
 
@@ -130,8 +117,8 @@
               ainsi que la gestion de projet, les bases de données et les réseaux.
             </p>
             <ul>
-              <li><strong>Développement</strong> — Python, Java, C, PHP, JavaScript, algorithmique avancée</li>
-              <li><strong>Bases de données</strong> — SQL, modélisation relationnelle, MySQL, PostgreSQL</li>
+              <li><strong>Développement</strong> — Java, C, C++, C#, PHP, HTML/CSS, algorithmique avancée</li>
+              <li><strong>Bases de données</strong> — SQL, modélisation relationnelle, MySQL</li>
               <li><strong>Projets académiques (SAE)</strong> — Covo'IUT (covoiturage PHP/MySQL), Boutique de Cookies (MVC PHP), et plus</li>
               <li><strong>Réseaux & systèmes</strong> — protocoles, architecture réseau, Linux</li>
               <li><strong>Gestion de projet</strong> — méthodes agiles, travail en équipe, documentation</li>
@@ -160,12 +147,12 @@
             <div class="exp-meta">
               <span class="exp-date">2023 · Lycée Félix Faure — Beauvais</span>
               <div class="exp-title">Baccalauréat <span class="accent">général</span></div>
-              <div class="exp-subtitle">Spécialités Mathématiques &amp; NSI · Mention Bien</div>
+              <div class="exp-subtitle">Spécialités Mathématiques Expertes &amp; NSI · Mention Bien</div>
             </div>
           </div>
           <div class="exp-body">
             <p>
-              Spécialité Numérique et Sciences Informatiques (NSI) associée aux Mathématiques,
+              Spécialité Numérique et Sciences Informatiques (NSI) avec option <strong>Mathématiques Expertes</strong>,
               premier contact structuré avec la programmation, les algorithmes et la logique formelle.
             </p>
           </div>
@@ -204,8 +191,8 @@
   </main>
 
   <footer class="footer">
-    <p>Fait avec ☕ par <strong>Oscar Lescot</strong> · 2026</p>
-    <p class="footer-tech">HTML · CSS · JS — From scratch</p>
+    <p><strong>Oscar Lescot</strong> · 2026</p>
+    <p class="footer-tech">HTML · CSS · JS</p>
   </footer>
 
   <script src="script.js"></script>
