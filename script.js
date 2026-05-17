@@ -199,8 +199,8 @@ const $$ = (sel) => document.querySelectorAll(sel);
   if (!heroTag) return;
 
   const texts = [
-    '// Développeur & Data',
-    '// Stage ISAGRI — Snowflake · IA',
+    '// Développement · Data · IA',
+    '// Stage ISAGRI — Snowflake · Cortex AI',
     '// BUT 2 · IUT d\'Amiens',
   ];
 

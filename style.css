@@ -1186,7 +1186,7 @@ body.subpage .section:first-of-type {
   color: var(--clr-text-muted);
   letter-spacing: 0.08em;
 }
-.ticker-track span { padding-right: 0; }
+.ticker-track span { min-width: 55vw; padding-right: 6vw; }
 .ticker-track:hover { animation-play-state: paused; }
 @keyframes tickerScroll {
   from { transform: translateX(0); }
