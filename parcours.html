@@ -43,7 +43,7 @@
           <h2 class="section-title">Expérience professionnelle</h2>
         </div>
 
-        <div class="exp-card reveal">
+        <a href="project-stage.html" class="exp-card reveal" style="display:block; text-decoration:none; color:inherit;">
           <div class="exp-card-header">
             <img
               src="assets/logo_isagri.png"
@@ -58,16 +58,10 @@
           </div>
 
           <div class="exp-body">
-            <p>
-              Stage de 8 semaines au sein du pôle <strong>Agiris</strong> d'ISAGRI à Beauvais,
-              éditeur de logiciels comptables pour experts-comptables. Mission : concevoir
-              de zéro un système de données complet — de l'extraction à la visualisation —
-              permettant d'analyser les revenus clients.
-            </p>
             <ul>
-              <li><strong>Pipeline ETL</strong> — extraction depuis SQL Server on-premise via Python (pyodbc), chargement dans Snowflake selon la medallion architecture (RAW → Staging → BD Analytique)</li>
-              <li><strong>Dashboard analytique</strong> — interface interactive Streamlit connectée à Snowflake, avec filtres dynamiques, graphiques par période et export de données</li>
-              <li><strong>IA conversationnelle</strong> — intégration de Snowflake Cortex AI pour interroger la base en langage naturel, avec génération automatique de requêtes SQL</li>
+              <li><strong>Pipeline ETL</strong> — SQL Server → Snowflake (medallion architecture)</li>
+              <li><strong>Dashboard Streamlit</strong> — filtres dynamiques, export de données</li>
+              <li><strong>IA conversationnelle</strong> — Cortex AI, génération SQL en langage naturel</li>
             </ul>
             <div class="exp-tags">
               <span class="tag tag-hi">Snowflake</span>
@@ -79,11 +73,9 @@
               <span class="tag">pyodbc</span>
               <span class="tag">Pandas</span>
             </div>
-            <a href="project-stage.html" class="exp-link">
-              → Voir le projet en détail
-            </a>
+            <span class="exp-link">→ Voir le projet en détail</span>
           </div>
-        </div>
+        </a>
 
       </div>
     </section>
@@ -112,17 +104,11 @@
           </div>
 
           <div class="exp-body">
-            <p>
-              Formation en 3 ans alliant théorie et projets concrets. Le BUT Informatique couvre
-              l'ensemble du développement logiciel — du bas niveau à l'interface utilisateur —
-              ainsi que la gestion de projet, les bases de données et les réseaux.
-            </p>
             <ul>
-              <li><strong>Développement</strong> — Java, C, C++, C#, PHP, HTML/CSS, algorithmique avancée</li>
-              <li><strong>Bases de données</strong> — SQL, modélisation relationnelle, MySQL</li>
-              <li><strong>Projets académiques (SAE)</strong> — Covo'IUT (covoiturage PHP/MySQL), Boutique de Cookies (MVC PHP), et plus</li>
-              <li><strong>Réseaux & systèmes</strong> — protocoles, architecture réseau, Linux</li>
-              <li><strong>Gestion de projet</strong> — méthodes agiles, travail en équipe, documentation</li>
+              <li><strong>Développement</strong> — Java, C, PHP, HTML/CSS, algorithmique</li>
+              <li><strong>Bases de données</strong> — SQL, modélisation, MySQL</li>
+              <li><strong>SAE</strong> — Covo'IUT, Boutique de Cookies (MVC PHP)</li>
+              <li><strong>Réseaux &amp; gestion de projet</strong> — Agile, Linux</li>
             </ul>
             <div class="exp-tags">
               <span class="tag tag-hi">Python</span>
@@ -152,10 +138,7 @@
             </div>
           </div>
           <div class="exp-body">
-            <p>
-              Spécialité Numérique et Sciences Informatiques (NSI) avec option <strong>Mathématiques Expertes</strong>,
-              premier contact structuré avec la programmation, les algorithmes et la logique formelle.
-            </p>
+            <p>Spécialité NSI + <strong>Mathématiques Expertes</strong>.</p>
           </div>
         </div>
 
@@ -172,10 +155,6 @@
 
         <div class="cv-cta reveal">
           <h3>Mon <span class="accent">CV</span></h3>
-          <p>
-            L'ensemble de mon parcours, mes compétences et mes projets
-            résumés en une page.
-          </p>
           <a href="assets/CV%20Oscar%20Lescot.pdf" class="btn btn-primary" download="CV Oscar Lescot.pdf">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>

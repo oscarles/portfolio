@@ -156,8 +156,7 @@
       </div>
       <h1>Deux <span class="accent">expériences</span>.</h1>
       <p class="lead">
-        Pas des fiches techniques — le récit de ce qui s'est vraiment passé,
-        les obstacles, les décisions, et ce que j'en retire.
+        Ce qui s'est vraiment passé, les obstacles, et ce que j'en retire.
       </p>
     </header>
 
@@ -177,56 +176,21 @@
           <div class="recit-body">
 
             <p class="reveal">
-              Le premier jour chez <strong>ISAGRI</strong>, on me présente la mission :
-              concevoir un système complet de données pour analyser les revenus des clients
-              experts-comptables. Extraction depuis SQL Server, transformation dans Snowflake,
-              dashboard interactif, et si possible une couche IA. Délai : 8 semaines.
-              Encadrement : quasi-inexistant, je travaille en autonomie totale.
+              Jour 1 chez <strong>ISAGRI</strong> : concevoir un système data complet pour analyser les revenus de clients experts-comptables. Outils inconnus (<strong>Snowflake, Streamlit</strong>), 49 tables de données fiscales opaques, 8 semaines, autonomie totale.
             </p>
 
             <p class="reveal">
-              Le problème, c'est que je n'avais jamais touché à <strong>Snowflake</strong>,
-              ni à <strong>Streamlit</strong>, ni aux outils data cloud en général. Et en
-              ouvrant la base de données pour la première fois — 49 tables, des noms de
-              colonnes cryptiques, des valeurs sans libellé — j'ai réalisé que le domaine
-              métier était tout aussi inconnu : la <strong>comptabilité et la fiscalité
-              française</strong>.
-            </p>
-
-            <p class="reveal">
-              Plutôt que de plonger directement dans les vraies données et de me noyer,
-              j'ai choisi de décomposer le problème. D'abord les outils : je me suis créé
-              des micro-projets avec des données fictives — quelques lignes dans Snowflake,
-              une transformation simple, une visualisation Streamlit. Chaque brique validée
-              isolément avant d'être assemblée. Ensuite seulement, j'ai abordé les données réelles.
+              Méthode : micro-projets avec données fictives pour valider chaque brique isolément avant de toucher aux vraies données.
             </p>
 
             <div class="recit-moment reveal">
               <p>
-                Le déclic s'est produit en cherchant à comprendre pourquoi la base stockait
-                des valeurs du type <code>1AJ | 20000</code> sans aucun libellé.
-                En croisant avec la documentation de la déclaration de revenus 2042,
-                j'ai compris : chaque code correspond à une case officielle du formulaire fiscal.
-                À partir de là, les 49 tables ont commencé à raconter une histoire cohérente.
+                Le déclic : des valeurs <code>1AJ | 20000</code> sans libellé. En croisant avec la déclaration 2042, j'ai compris — chaque code est une case fiscale officielle. Les 49 tables ont commencé à raconter une histoire cohérente.
               </p>
             </div>
 
             <p class="reveal">
-              Une fois la structure comprise, tout s'est enchaîné. Le pipeline ETL était en
-              place — données extraites depuis SQL Server via Python, chargées dans Snowflake
-              en architecture medallion (RAW → Staging → Analytique). Le dashboard Streamlit
-              permettait de filtrer les revenus par période, par type de client, avec export
-              intégré. Et j'ai proposé une brique supplémentaire non prévue au départ :
-              une <strong>IA conversationnelle via Cortex AI</strong>, capable d'interroger
-              la base en langage naturel et de générer automatiquement les requêtes SQL.
-            </p>
-
-            <p class="reveal">
-              Le POC a été présenté à l'équipe à la fin du stage. Il a été validé comme
-              base de travail pour la suite du projet. Ce que je retiens de cette expérience,
-              c'est moins la liste des outils maîtrisés que la méthode : <strong>décomposer
-              l'inconnu, avancer par petites validations, ne pas attendre de tout comprendre
-              pour commencer.</strong>
+              Résultat : pipeline ETL (SQL Server → Snowflake, medallion), dashboard Streamlit, et une <strong>IA conversationnelle Cortex AI</strong> non prévue au départ — validée comme base de travail pour la suite.
             </p>
 
           </div>
@@ -276,43 +240,17 @@
           <div class="recit-body">
 
             <p class="reveal">
-              <strong>Covo'IUT</strong>, c'est un projet académique de première année :
-              concevoir une plateforme de covoiturage pour les étudiants de l'IUT, en PHP,
-              MySQL et Bootstrap. Rien de révolutionnaire sur le papier. Sauf qu'on était
-              cinq, sans répartition de rôles vraiment définie, et avec un semestre pour livrer
-              quelque chose de fonctionnel.
-            </p>
-
-            <p class="reveal">
-              Les premières semaines, chacun codait un peu de tout. Le résultat : des conflits
-              de code constants, des fonctionnalités dupliquées, et une base de données qui
-              évoluait dans tous les sens. On a rapidement compris qu'on ne pouvait pas
-              avancer comme ça — pas parce qu'on manquait de compétences individuellement,
-              mais parce qu'on ne travaillait pas ensemble.
+              <strong>Covo'IUT</strong> — plateforme de covoiturage étudiant en PHP/MySQL. Cinq développeurs, sans répartition de rôles. Résultat des premières semaines : conflits constants, fonctionnalités dupliquées.
             </p>
 
             <div class="recit-moment reveal">
               <p>
-                On a pris le temps de s'arrêter, de lister ce qui restait à faire, et de
-                se répartir les blocs fonctionnels clairement. Une décision simple, mais
-                qui a transformé la dynamique : chacun savait ce qu'il portait, et on pouvait
-                avancer en parallèle sans se marcher dessus.
+                On s'est arrêtés pour tout lister et se répartir les blocs fonctionnels. Simple — mais ça a tout changé : chacun savait ce qu'il portait.
               </p>
             </div>
 
             <p class="reveal">
-              Le projet final comprenait la création et réservation de trajets, un système
-              de profil et d'avis, une recherche avec <strong>autocomplétion d'adresse</strong>,
-              et un <strong>espace administrateur complet</strong>. Ce n'est pas la complexité
-              technique qui m'a le plus marqué ici, mais ce que j'ai appris sur le travail
-              en groupe : la coordination ne s'improvise pas, et clarifier les responsabilités
-              dès le départ évite bien des frictions.
-            </p>
-
-            <p class="reveal">
-              C'est une leçon que j'ai directement appliquée ensuite — et que je compte
-              continuer à développer, notamment sur la communication régulière de l'avancement
-              au sein d'une équipe.
+              Livraison : trajets, profil, avis, autocomplétion d'adresse, espace admin. Ce que j'en retiens : <strong>la coordination ne s'improvise pas</strong> — clarifier les responsabilités dès le départ évite bien des frictions.
             </p>
 
           </div>

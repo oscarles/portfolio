@@ -1694,15 +1694,15 @@ a.project-card:focus-visible {
   padding: 0;
 }
 .exp-body li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.65rem;
+  position: relative;
+  padding-left: 1.3rem;
 }
 .exp-body li::before {
   content: '→';
   color: var(--clr-accent);
-  flex-shrink: 0;
-  margin-top: 0.05em;
+  position: absolute;
+  left: 0;
+  top: 0.05em;
 }
 
 .exp-tags {
