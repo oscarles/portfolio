@@ -3,9 +3,7 @@
   nav.className = 'navbar';
   nav.id = 'navbar';
   nav.innerHTML = `
-    <a href="index.html" class="nav-logo">
-      <span class="logo-bracket">[</span>OL<span class="logo-bracket">]</span>
-    </a>
+    <a href="index.html" class="nav-logo">OL<span class="logo-slash">/</span></a>
     <ul class="nav-links" id="nav-links">
       <li><a href="about.html"     class="nav-link">À propos</a></li>
       <li><a href="projects.html"  class="nav-link">Projets</a></li>

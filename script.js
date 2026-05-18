@@ -201,8 +201,9 @@ const $$ = (sel) => document.querySelectorAll(sel);
 
   const texts = [
     '// Développement · Data · IA',
-    '// Stage ISAGRI — Snowflake · Cortex AI',
-    '// BUT 2 · IUT d\'Amiens',
+    '// Stage ISAGRI → Snowflake · Cortex AI',
+    '// Tennis · Musculation · Vélo',
+    '// BUT 2 · IUT d\'Amiens · 2026',
   ];
 
   let textIndex  = 0;
@@ -231,19 +232,6 @@ const $$ = (sel) => document.querySelectorAll(sel);
   setTimeout(type, 1500);
 })();
 
-// ─────────────────────────────────────────────────────────────
-//  9. BARRE DE PROGRESSION SCROLL
-// ─────────────────────────────────────────────────────────────
-(function initScrollProgress() {
-  const bar = $('#scroll-progress');
-  if (!bar) return;
-
-  window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    bar.style.width = (max > 0 ? (scrolled / max) * 100 : 0) + '%';
-  }, { passive: true });
-})();
 
 // ─────────────────────────────────────────────────────────────
 //  10. TRANSITIONS DE PAGE
