@@ -8,19 +8,11 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
   <style>
-    /* ── Récit ── */
     .recit-block {
       max-width: 760px;
       margin: 0 auto;
-    }
-
-    .recit-intro {
-      font-size: 1.05rem;
-      line-height: 1.9;
-      color: var(--clr-text);
-      margin-bottom: 2.5rem;
     }
 
     .recit-body p {
@@ -34,12 +26,11 @@
       color: var(--clr-accent);
     }
 
-    /* Moment clé */
     .recit-moment {
       border-left: 3px solid var(--clr-accent);
       padding: 1.1rem 1.5rem;
       margin: 2rem 0;
-      background: rgba(0,229,160,0.04);
+      background: rgba(255, 215, 0, 0.04);
       border-radius: 0 var(--radius) var(--radius) 0;
     }
 
@@ -50,7 +41,6 @@
       margin: 0 !important;
     }
 
-    /* Preuve visuelle */
     .proof-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -61,7 +51,7 @@
     .proof-item {
       border-radius: var(--radius);
       overflow: hidden;
-      border: 1px solid var(--clr-border);
+      border: 1px dashed var(--clr-border);
       background: var(--clr-surface);
     }
 
@@ -84,7 +74,6 @@
       font-family: var(--font-mono);
     }
 
-    /* Séparateur récit */
     .recit-sep {
       display: flex;
       align-items: center;
@@ -107,7 +96,6 @@
       white-space: nowrap;
     }
 
-    /* Label expérience */
     .recit-label {
       display: inline-flex;
       align-items: center;
@@ -115,7 +103,7 @@
       font-size: 0.72rem;
       font-family: var(--font-mono);
       color: var(--clr-accent);
-      border: 1px solid rgba(0,229,160,0.3);
+      border: 1px solid rgba(255, 215, 0, 0.3);
       padding: 4px 12px;
       border-radius: 100px;
       margin-bottom: 1.25rem;
@@ -133,20 +121,38 @@
     .recit-title span {
       color: var(--clr-accent);
     }
+
+    .recit-step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .recit-step-num {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--clr-accent);
+      min-width: 28px;
+      padding-top: 0.2rem;
+    }
+
+    .recit-step p {
+      margin: 0 !important;
+    }
   </style>
 </head>
 <body class="subpage" data-page="narratif">
 
   <div class="page-overlay" id="page-overlay"></div>
-  <div class="scroll-progress" id="scroll-progress"></div>
-  <div class="grain" aria-hidden="true"></div>
+  <div class="ref-bar"></div>
   <div class="cursor" id="cursor"></div>
   <div class="cursor-follower" id="cursor-follower"></div>
 
   <script src="navbar.js"></script>
 
   <main>
-    <div class="hero-bg-grid"></div>
+    <div class="bp-grid"></div>
 
     <header class="page-intro">
       <div class="crumb">
@@ -176,26 +182,33 @@
           <div class="recit-body">
 
             <p class="reveal">
-              Jour 1 chez <strong>ISAGRI</strong> : concevoir un système data complet pour analyser les revenus de clients experts-comptables. Outils inconnus (<strong>Snowflake, Streamlit</strong>), 49 tables de données fiscales opaques, 8 semaines, autonomie totale.
+              Jour 1 chez <strong>ISAGRI</strong> : la mission est de concevoir un système data complet pour permettre aux experts-comptables d'analyser les revenus de leurs clients. La contrainte immédiate — je n'ai jamais touché à <strong>Snowflake</strong> ni à <strong>Streamlit</strong>, les données sources sont 49 tables fiscales sans documentation, et je travaille seul avec 8 semaines devant moi.
             </p>
 
             <p class="reveal">
-              Méthode : micro-projets avec données fictives pour valider chaque brique isolément avant de toucher aux vraies données.
+              Mon premier réflexe : ne pas me lancer directement sur les vraies données. J'ai construit des <strong>micro-projets avec des données fictives</strong> pour valider chaque brique indépendamment — d'abord la connexion SQL Server, puis le transfert vers Snowflake, puis les premières requêtes, puis le dashboard Streamlit vide. Chaque étape validée séparément avant de passer à la suivante.
             </p>
 
             <div class="recit-moment reveal">
               <p>
-                Le déclic : des valeurs <code>1AJ | 20000</code> sans libellé. En croisant avec la déclaration 2042, j'ai compris — chaque code est une case fiscale officielle. Les 49 tables ont commencé à raconter une histoire cohérente.
+                Le déclic : des valeurs <code>1AJ | 20000</code> sans libellé, sans contexte. En croisant avec la déclaration de revenus 2042, j'ai compris — chaque code correspond à une case fiscale officielle. Une fois ce mapping établi, les 49 tables ont commencé à raconter une histoire cohérente.
               </p>
             </div>
 
             <p class="reveal">
-              Résultat : pipeline ETL (SQL Server → Snowflake, medallion), dashboard Streamlit, et une <strong>IA conversationnelle Cortex AI</strong> non prévue au départ — validée comme base de travail pour la suite.
+              La <strong>medallion architecture</strong> (bronze → argent → or) était au cahier des charges : données brutes d'un côté, données nettoyées de l'autre, agrégats exploitables en sortie. La comprendre et l'appliquer sur 49 tables fiscales avec peu de documentation, c'était une autre affaire.
+            </p>
+
+            <p class="reveal">
+              À mi-stage, une fois le pipeline stable, j'ai intégré l'<strong>IA conversationnelle Cortex AI</strong> — un modèle de langage capable de générer du SQL à partir de questions en français. Le résultat a été validé par le tuteur comme base de travail pour les équipes après mon départ.
+            </p>
+
+            <p class="reveal">
+              Ce que j'en retiens : l'autonomie totale n'est pas une difficulté en soi — c'est une contrainte qui force à structurer sa pensée. <strong>Décomposer avant d'agir</strong>, valider par petites étapes, ne pas attendre de tout comprendre pour commencer : ce sont les réflexes que le stage a vraiment installés.
             </p>
 
           </div>
 
-          <!-- Preuves visuelles -->
           <div class="proof-grid reveal">
             <div class="proof-item">
               <img src="assets/transition_donne_stage.png" alt="Pipeline de données ISAGRI" />
@@ -215,9 +228,7 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         SÉPARATEUR
-    ═══════════════════════════════════════════ -->
+    <!-- SÉPARATEUR -->
     <div class="container">
       <div class="recit-sep">
         <span>// Récit suivant</span>
@@ -240,22 +251,29 @@
           <div class="recit-body">
 
             <p class="reveal">
-              <strong>Covo'IUT</strong> — plateforme de covoiturage étudiant en PHP/MySQL. Cinq développeurs, sans répartition de rôles. Résultat des premières semaines : conflits constants, fonctionnalités dupliquées.
+              <strong>Covo'IUT</strong> — plateforme de covoiturage étudiant en PHP/MySQL. Cinq développeurs, aucun chef de projet désigné, aucune répartition des tâches au départ. Les premières semaines : chacun code ce qui lui semble prioritaire, des fonctionnalités se recoupent, des conflits Git s'accumulent, et personne ne sait vraiment où en est l'équipe.
+            </p>
+
+            <p class="reveal">
+              Le problème n'était pas technique — c'était organisationnel. On codait tous bien individuellement, mais on ne formait pas une équipe. Les réunions tournaient en rond parce que personne ne portait de décision.
             </p>
 
             <div class="recit-moment reveal">
               <p>
-                On s'est arrêtés pour tout lister et se répartir les blocs fonctionnels. Simple — mais ça a tout changé : chacun savait ce qu'il portait.
+                On a tout arrêté pour lister l'intégralité des fonctionnalités à faire, les découper en blocs, et les attribuer nominativement. Simple sur le papier — mais ça a tout changé. Chacun savait ce qu'il portait, les doublons ont disparu, et les PR sont devenues lisibles.
               </p>
             </div>
 
             <p class="reveal">
-              Livraison : trajets, profil, avis, autocomplétion d'adresse, espace admin. Ce que j'en retiens : <strong>la coordination ne s'improvise pas</strong> — clarifier les responsabilités dès le départ évite bien des frictions.
+              J'ai pris en charge la <strong>gestion des trajets</strong> et l'<strong>autocomplétion d'adresse</strong> via l'API gouvernementale. Ce dernier point était techniquement le plus délicat — gérer les appels asynchrones, le debounce, et l'affichage des suggestions sans ralentir l'interface.
+            </p>
+
+            <p class="reveal">
+              Livraison finale : trajets, profil, système d'avis, autocomplétion, espace admin complet. Ce que j'en retiens : <strong>la coordination ne s'improvise pas</strong>. Un projet de groupe sans structure explicite n'avance pas — peu importe le niveau technique de chacun.
             </p>
 
           </div>
 
-          <!-- Preuves visuelles -->
           <div class="proof-grid reveal">
             <div class="proof-item">
               <img src="assets/acceuil_covoiut.png" alt="Page d'accueil Covo'IUT" />
