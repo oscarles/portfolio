@@ -84,6 +84,43 @@
       color: var(--clr-accent);
     }
 
+    /* ── Niveau PN ── */
+    .pn-card-header {
+      flex-wrap: wrap;
+    }
+    .pn-niveau {
+      margin-left: auto;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--clr-text-muted);
+      white-space: nowrap;
+    }
+    .pn-niveau strong { color: var(--clr-accent); }
+
+    .pn-beyond {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-family: var(--font-mono);
+      padding: 2px 9px;
+      border-radius: 100px;
+      border: 1px solid rgba(0, 229, 160, 0.45);
+      color: var(--clr-accent);
+      margin-top: 0.5rem;
+    }
+
+    .pn-context {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-left: 3px solid var(--clr-accent);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.84rem;
+      color: var(--clr-text-muted);
+      line-height: 1.8;
+    }
+    .pn-context strong { color: var(--clr-text); }
+
     /* ── Bloc citation ── */
     .reflexion-quote {
       border-left: 3px solid var(--clr-accent);
@@ -219,12 +256,17 @@
         </div>
 
 
+        <div class="pn-context reveal">
+          Parcours <strong>RACDV</strong> — Réalisation d'Applications : Conception, Développement, Validation. Le PN BUT Informatique structure chaque compétence sur <strong>3 niveaux</strong> (N1 : BUT 1 · N2 : BUT 2 · N3 : BUT 3). En fin de BUT 2, les compétences cœur du parcours (C1, C4) sont proches du N3 — portées notamment par le stage.
+        </div>
+
         <div class="pn-grid">
 
           <div class="pn-card strong reveal">
             <div class="pn-card-header">
               <span class="pn-num">C1</span>
               <span class="pn-label">Réaliser — Développer</span>
+              <span class="pn-niveau">N<strong>3</strong>/3</span>
             </div>
             <p class="pn-desc">HTML/CSS, Java, C en cours — Python et JS appris en autonomie sur les projets perso et le stage. Je passe vite à l'implémentation.</p>
             <span class="pn-badge ok">Confirmé</span>
@@ -234,6 +276,7 @@
             <div class="pn-card-header">
               <span class="pn-num">C2</span>
               <span class="pn-label">Optimiser</span>
+              <span class="pn-niveau">N<strong>2</strong>/3</span>
             </div>
             <p class="pn-desc">Travaillé en algorithmique (chess bot). En progression sur le profiling systématique.</p>
             <span class="pn-badge">Avancé</span>
@@ -243,8 +286,9 @@
             <div class="pn-card-header">
               <span class="pn-num">C3</span>
               <span class="pn-label">Administrer des systèmes</span>
+              <span class="pn-niveau">N<strong>2</strong>/3</span>
             </div>
-            <p class="pn-desc">VPS (bot Solana), connexions distantes SQL Server → Snowflake, Linux.</p>
+            <p class="pn-desc">VPS (bot Solana), connexions distantes SQL Server → Snowflake, Linux. Gestion de sous-réseaux en cours — adressage IP, découpage réseau, plan d'adressage.</p>
             <span class="pn-badge">Avancé</span>
           </div>
 
@@ -252,15 +296,18 @@
             <div class="pn-card-header">
               <span class="pn-num">C4</span>
               <span class="pn-label">Gérer des données</span>
+              <span class="pn-niveau">N<strong>3</strong>/3</span>
             </div>
             <p class="pn-desc">Architecture medallion, ETL complet, 49 tables fiscales au stage.</p>
             <span class="pn-badge ok">Confirmé</span>
+            <span class="pn-beyond">↑ Au-delà du PN — Snowflake &amp; architecture medallion vs MySQL attendu</span>
           </div>
 
           <div class="pn-card reveal">
             <div class="pn-card-header">
               <span class="pn-num">C5</span>
               <span class="pn-label">Conduire un projet</span>
+              <span class="pn-niveau">N<strong>2</strong>/3</span>
             </div>
             <p class="pn-desc">Agile pratiqué sur plusieurs SAE. Progression sur la rigueur de la documentation.</p>
             <span class="pn-badge">Avancé</span>
@@ -270,6 +317,7 @@
             <div class="pn-card-header">
               <span class="pn-num">C6</span>
               <span class="pn-label">Collaborer en équipe</span>
+              <span class="pn-niveau">N<strong>2</strong>/3</span>
             </div>
             <p class="pn-desc">Pratiqué sur toutes les SAE. À améliorer : partager l'avancement en temps réel.</p>
             <span class="pn-badge">Avancé</span>
