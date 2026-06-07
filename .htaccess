@@ -1,0 +1,15 @@
+Options -Indexes
+RewriteEngine On
+RewriteBase /
+
+# Fichiers et dossiers existants servis directement
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# /about → about.html, /projects → projects.html, etc.
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^.]+?)/?$ $1.html [L]
+
+# Racine → index.html
+RewriteRule ^$ index.html [L]
